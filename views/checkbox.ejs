@@ -8,20 +8,37 @@
   <body>
     <h1>Acheezements</h1>
       <!-- <legend></legend> -->
-    <div class="checkbox_group">
-      <p>
-        <input type="checkbox" name="Acheezement" value="1" id="checkbox1">
+      <form>
+        <div id="checkbox_group" required>
+        <input type="checkbox" name="Acheezement" value="1" id="checkbox1" required>
         <label for="checkbox1" class="label">Acheezements 1</label>
-      </p>
-      <p>
-        <input type="checkbox" name="Acheezement" value="2"  id="checkbox12">
+     
+        <input type="checkbox" name="Acheezement" value="2"  id="checkbox2">
         <label for="checkbox2" class="label">Acheezements 2</label>
-      </p>
-      <p>
-        <input type="checkbox" name="Acheezement" value="3"  id="checkbox12">
+     
+        <input type="checkbox" name="Acheezement" value="3"  id="checkbox3">
         <label for="checkbox3" class="label">Acheezements 3</label>
-      </p>
+     
+        <input type="checkbox" name="Acheezement" value="4"  id="checkbox4">
+        <label for="checkbox4" class="label">Acheezements 4</label>
+
+        <input id="submit" type="submit" name="Goals complete">
+      </div>
+      </form>
+    <div class="success" style="display:none"> 
+      <h1>Success!</h1>
     </div>
+    <script type="text/javascript">
+        var submit_button = document.getElementById('submit')
+        submit_button.onchange = function() {  
+          alert("Success!")
+      }
+
+      // var checked_boxes = document.getElementById(submit).checked;
+      // if (checked_boxes == true) {
+      //   alert("Success!")
+      // }
+    </script>
 
   </body>
 </html>
