@@ -14,18 +14,21 @@ describe('Header', function() {
 })
 
 describe('Input options', function() {
-  it('allows user to input an option for their goal', function() {
-    cy.get('input').type('Run 10K')
+  it('labels each input box numerically', function() {
+    cy.get('#labelGoalOne').contains('Acheezement 1')
   })
 
-  it('renders text for each acheezement', function() {
-    cy.get('#goal-1').contains('Acheezement 1')
+  it('allows user to input an option for their goal', function() {
+    cy.get('#inputGoalOne').type('Run 10K')
   })
 })
 
 describe('Submit Button', function() {
-  it('takes you to`Acheezements` page', function() {
-    cy.get('#submit-goals').click()
-    cy.get('body').contains('Acheezements')
+  it('only submits data to next page if all four fields have been filled', function() {
+    cy.get('#inputGoalTwo').type('Meditate')
+    cy.get('#inputGoalThree').type('Pay someone a compliment')
+    cy.get('#inputGoalFour').type('Write a poem')
+    cy.get('#submitGoals').click()
+    cy.get('body').contains("Today's Goals")
   })
 })
