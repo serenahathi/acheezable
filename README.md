@@ -1,48 +1,77 @@
 # Acheezeable
+
 A cheesy self-led personal development app to encourage positivity during the achievement of goals.
 
-# MVP
-Single day
-Set goals in the morning
-Select 4 goals in the morning
-User marks when goal is complete
-When all goals are checked, a "Well done" dialog box appears
-User Stories
-MVP User Stories:
+## Installation
+
+`git clone https://github.com/serenahathi/acheezable`
+
+Run `npm install` to download dependencies
+
+## How to Use
+
+Run `nodemon app.js` to launch server
+
+Navigate to `http://localhost:3000`
+
+## How to Test
+
+`npm run cypress` to run feature tests via cypress.io
+
+`npm run jest` to run unit tests via Jest
+
+## Features
+
+### MVP
+
+* Select 4 goals for the day
+* User checks box when each goal is complete
+* When all goals are checked, a motivational message appears
+
+## User Stories
+
+### MVP
 
 ```
-As a User
-In order to set some goals
-I would like to select a maximum of four predefined goals from a drop down menu
+As a user,
+So I can work on my personal development today,
+I would like to create some goals to track.
+
+As a user,
+So I can be realistic about how many goals I can complete today,
+I want to be restricted to four goals only.
+
+As a user,
+So I can keep track of my goals,
+I would like to be able to tick off goals when they’re met
+
+As a user,
+So I can feel good about achieving my goals,
+I would like some positive feedback once they’re all ticked off.
 ```
 
-```
-As a User 
-So I can keep track of my goals
-I would like to be able to tick off goals as they’re met 
-```
-```
-As a user 
-So I can feel good about achieving my goals
-I would like some positive feedback once they’re all ticked off 
-```
-
-Some overall user stories (subject to change)
+## Potential User Stories Beyond MVP
 
 ```
-As a User
-In order to to help me achieve personal development goals
-I would like to be able to enter my goals
+As a user,
+In order to feel good about each goal I've completed,
+I would like to see a motivational message upon completion of each goal.
+
+As a user,
+When I'm not sure what to do to improve myself,
+I would like to get suggestions about positive ideas.
 ```
 
-```
-As a User
-In order to feel good about achieving goals
-I would like to be able to see motivational messages on completion of goals
-```
+## Authors
 
-```
-As a User
-When I'm not sure what to do to improve myself
-I would like to get suggestions about positive ideas
-```
+Team Cheezers:
+
+Terry Allitt
+
+Ben Challenor
+
+Serena Hathi
+
+Heather Stock
+
+Lewis Watson
