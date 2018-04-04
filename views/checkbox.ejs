@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <title>Acheezements</title>
   </head>
@@ -21,25 +22,12 @@
      
         <input type="checkbox" name="Acheezement" value="4"  id="checkbox4">
         <label for="checkbox4" class="label">Acheezements 4</label>
-
-        <input id="submit" type="submit" name="Goals complete">
       </div>
       </form>
     <div class="success" style="display:none"> 
       <h1>Success!</h1>
     </div>
-    <script type="text/javascript">
-        var submit_button = document.getElementById('submit')
-        submit_button.onchange = function() {  
-          alert("Success!")
-      }
-
-      // var checked_boxes = document.getElementById(submit).checked;
-      // if (checked_boxes == true) {
-      //   alert("Success!")
-      // }
-    </script>
-
+    <script type="text/javascript" src="../src/interface.js"></script>
   </body>
 </html>
 
