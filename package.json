@@ -22,5 +22,9 @@
   "devDependencies": {
     "cypress": "^2.1.0",
     "jest": "^22.4.3"
+  },
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "express": "^4.16.3"
   }
 }
