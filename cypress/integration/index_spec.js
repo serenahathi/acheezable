@@ -24,6 +24,19 @@ describe('Dropdown options', function() {
   it('renders text for each acheezement', function() {
     cy.visit('http://localhost:3000')
     cy.get('#goal-1').contains('Acheezement 1')
+  })
+})
 
+describe('Submit Button', function() {
+  it('submits goal options', function() {
+    cy.visit('http://localhost:3000')
+
+    cy.get('#submit-goals').click()
+  })
+
+  it('posts a new route successfully', function() {
+    cy.visit('http://localhost:3000')
+    cy.get('#submit-goals').click()
+    cy.route('POST', '/')
   })
 })
