@@ -13,10 +13,9 @@ describe('Header', function() {
   })
 })
 
-describe('Dropdown options', function() {
-  it('allows user to select an option for their goal', function() {
-    cy.get('select#1')
-    .select('goal 1').should('have.value', 'option-1')
+describe('Input options', function() {
+  it('allows user to input an option for their goal', function() {
+    cy.get('input').type('Run 10K')
   })
 
   it('renders text for each acheezement', function() {
