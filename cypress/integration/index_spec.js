@@ -25,12 +25,8 @@ describe('Dropdown options', function() {
 })
 
 describe('Submit Button', function() {
-  it('submits goal options', function() {
+  it('takes you to`Acheezements` page', function() {
     cy.get('#submit-goals').click()
+    cy.get('body').contains('Acheezements')
   })
-
-  // it('posts a new route successfully', function() {
-  //   cy.get('#submit-goals').click()
-  //   cy.route('POST', '/')
-  // })
 })
