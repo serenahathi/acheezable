@@ -1,0 +1,26 @@
+{
+  "name": "acheezable",
+  "version": "1.0.0",
+  "description": "A cheesy self-led personal development app to encourage positivity during the achievement of goals.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serenahathi/acheezable.git"
+  },
+  "keywords": [
+    "acheezable"
+  ],
+  "author": "Team Cheezers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serenahathi/acheezable/issues"
+  },
+  "homepage": "https://github.com/serenahathi/acheezable#readme",
+  "devDependencies": {
+    "cypress": "^2.1.0",
+    "jest": "^22.4.3"
+  }
+}
