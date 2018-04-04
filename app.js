@@ -8,6 +8,9 @@ app.get('/', (req, res) => {
   res.render('index.ejs')
 });
 
+app.get('/checkbox', (req, res) => {
+  res.render('checkbox.ejs')
+});
 app.post('/', (req, res) => {
   redirect('/')
 })
