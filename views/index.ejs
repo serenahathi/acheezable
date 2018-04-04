@@ -7,57 +7,35 @@
   <body>
     <h1>Acheezable</h1>
 
-    <div class="dropdown-goals">
-      <label for="goal-1" id="goal-1">Acheezement 1
-      </label>
-      <select id="1" name="goal-1">
-        <option value="option-1">goal 1</option>
-        <option value="option-2">goal 2</option>
-        <option value="option-3">goal 3</option>
-        <option value="option-4">goal 4</option>
-      </select>
-    </div>
+    <form action="/" method="post">
+      <div class="dropdown-goals">
+        <label id="labelGoalOne" for="goalOne">Acheezement 1
+        </label>
+        <input id="inputGoalOne" type="text" name="goalOne" placeholder="enter your goal" required>
+      </div>
 
-    <div class="dropdown-goals">
-      <label for="goal-2" id="goal-2">Acheezement 2
-      </label>
-      <select id="2" name="goal-2">
-        <option value="option-1">goal 1</option>
-        <option value="option-2">goal 2</option>
-        <option value="option-3">goal 3</option>
-        <option value="option-4">goal 4</option>
-      </select>
-    </div>
+      <div class="dropdown-goals">
+        <label id="labelGoalTwo" for="goalTwo">Acheezement 2
+        </label>
+        <input id="inputGoalTwo" type="text" name="goalTwo" placeholder="enter your goal" required>
+      </div>
 
+      <div class="dropdown-goals">
+        <label id="labelGoalThree" for="goalThree">Acheezement 3
+        </label>
+        <input id="inputGoalThree" type="text" name="goalThree" placeholder="enter your goal" required>
+      </div>
 
-    <div class="dropdown-goals">
-      <label for="goal-3" id="goal-3">Acheezement 3
-      </label>
-      <select id="3" name="goal-3">
-        <option value="option-1">goal 1</option>
-        <option value="option-2">goal 2</option>
-        <option value="option-3">goal 3</option>
-        <option value="option-4">goal 4</option>
-      </select>
-    </div>
+      <div class="dropdown-goals">
+        <label id="labelGoalFour" for="goalFour">Acheezement 4
+        </label>
+        <input id="inputGoalFour" type="text" name="goalFour" placeholder="enter your goal" required>
+      </div>
 
-
-    <div class="dropdown-goals">
-      <label for="goal-4" id="goal-4">Acheezement 4
-      </label>
-      <select id="4" name="goal-4">
-        <option value="option-1">goal 1</option>
-        <option value="option-2">goal 2</option>
-        <option value="option-3">goal 3</option>
-        <option value="option-4">goal 4</option>
-      </select>
-    </div>
-
-    <div>
-      <form action="/" method="POST">
-        <button id="submit-goals" type="submit" name="submit">Go</button>
-      </form>
-    </div>
+      <div>
+          <button id="submitGoals" type="submit" name="submit">Set Goals</button>
+      </div>
+    </form>
 
   </body>
 </html>
