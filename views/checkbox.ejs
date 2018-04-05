@@ -8,34 +8,24 @@
 
   <body>
     <h1>Acheezements</h1>
-      <!-- <legend></legend> -->
-
-      <h2>Today's Goals</h2>
+    <h2>Today's Goals</h2>
+    <form>
+      <ul>
         <% for(var i = 0; i < goals.length; i++){ %>
-          <%= goals[i] %>
-      <input type="checkbox" name="check" value="<%= goals[i] %>" />
+          <li>
+            <%= goals[i].goal %>
+            <% if(goals[i].complete) { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" checked="checked" required/>
+            <% } else { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" required/>
+            <% } %>
+          </li>
         <% } %>
-
-      <form>
-        <div id="acheezements" required>
-        <input type="checkbox" name="Acheezement" value="1" id="checkbox1" required>
-        <label for="checkbox1" class="label">Acheezements 1</label>
-
-        <input type="checkbox" name="Acheezement" value="2"  id="checkbox2">
-        <label for="checkbox2" class="label">Acheezements 2</label>
-
-        <input type="checkbox" name="Acheezement" value="3"  id="checkbox3">
-        <label for="checkbox3" class="label">Acheezements 3</label>
-
-        <input type="checkbox" name="Acheezement" value="4"  id="checkbox4">
-        <label for="checkbox4" class="label">Acheezements 4</label>
-      </div>
-      </form>
+      </ul>
+    </form>
     <div id="success" style="display:none">
       <h1>Success!</h1>
     </div>
     <script type="text/javascript" src="../src/interface.js"></script>
   </body>
 </html>
-
-<!-- class="o-forms__checkbox" id="checkbox12" checked="checked" -->

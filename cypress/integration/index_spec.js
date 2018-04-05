@@ -16,18 +16,23 @@ describe('Header', function() {
 describe('Input options', function() {
   it('labels each input box numerically', function() {
     cy.get('#labelGoalOne').contains('Acheezement 1')
+    cy.get('#labelGoalTwo').contains('Acheezement 2')
+    cy.get('#labelGoalThree').contains('Acheezement 3')
+    cy.get('#labelGoalFour').contains('Acheezement 4')
   })
 
-  it('allows user to input an option for their goal', function() {
-    cy.get('#inputGoalOne').type('Run 10K')
+  it('allows user to input their goals', function() {
+    cy.get('#inputGoalOne').type('Meditate')
+    cy.get('#inputGoalTwo').type('Drink 8 glasses of water')
+    cy.get('#inputGoalThree').type('Run 10K')
+
   })
 })
 
 describe('Submit Button', function() {
   it('only submits data to next page if all four fields have been filled', function() {
-    cy.get('#inputGoalTwo').type('Meditate')
-    cy.get('#inputGoalThree').type('Pay someone a compliment')
-    cy.get('#inputGoalFour').type('Write a poem')
+    cy.get('#submitGoals').click()
+    cy.get('#inputGoalFour').type('Write a journal')
     cy.get('#submitGoals').click()
     cy.get('body').contains("Today's Goals")
   })
