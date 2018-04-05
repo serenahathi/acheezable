@@ -22,21 +22,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  // var goalOne = req.body.goalOne;
-  // var goalTwo = req.body.goalTwo;
-  // var goalThree = req.body.goalThree;
-  // var goalFour = req.body.goalFour;
-  // goals.push(goalOne);
-  // goals.push(goalTwo);
-  // goals.push(goalThree);
-  // goals.push(goalFour);
-  res.redirect('/checkbox')
+  res.redirect('/acheezements')
 })
 
-app.get('/checkbox', (req, res) => {
-  // get data
-
-  res.render("checkbox", { goals: goals });
+app.get('/acheezements', (req, res) => {
+  // get data currently hardcoded as goals above
+  res.render("acheezements", { goals: goals });
 });
 
 app.listen(3000);
