@@ -1,6 +1,57 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
+
+mongoose.connect('mongodb://localhost/acheezements');
+const goalSchema = new mongoose.Schema({
+  goal: String,
+  complete: Boolean,
+  date: { type: Date, default: Date.now }
+});
+
+const Goal  = mongoose.model('Goal', goalSchema);
+
+Goal.find({}, function(err, goals) {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log("All goals");
+    console.log(goals)
+  }
+
+})
+
+
+// var awesome = new Goal({
+//   goal: "Run 10K",
+//   complete: true
+// });
+// awesome.save(function(err, awe) {
+//   if(err) {
+//     console.log("oooops")
+//   } else {
+//     console.log('We just saved a goal');
+//     console.log(awe);
+//     console.log(awesome);
+//   }
+// });
+
+// Create is new and save in one function
+
+// Goal.create({
+//   goal: 'Eat lots of veg',
+//   complete: false
+// }, function(err, goal){
+//   if(err) {
+//     console.log(err);
+//   } else {
+//     console.log(goal);
+//   }
+// });
+
+
+
 
 app.set('view engine', "ejs");
 
@@ -22,21 +73,22 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  // var goalOne = req.body.goalOne;
-  // var goalTwo = req.body.goalTwo;
-  // var goalThree = req.body.goalThree;
-  // var goalFour = req.body.goalFour;
-  // goals.push(goalOne);
-  // goals.push(goalTwo);
-  // goals.push(goalThree);
-  // goals.push(goalFour);
+  console.log(req.body.goals)
+  var goals = req.body.goals;
+  for (var i = 0; i < goals.length; i++) {
+    Goal.create({ goal: goals[i], complete: false }, function(err, goal, next) {
+      err ? console.log(err) : console.log(goal);
+    });
+  }
   res.redirect('/checkbox')
 })
 
 app.get('/checkbox', (req, res) => {
-  // get data
+  // get data (eventually find by date)
+  Goal.find({}, function(err, allGoals) {
+    err ? console.log(err) : res.render("checkbox", { goals: allGoals });
+  })
 
-  res.render("checkbox", { goals: goals });
 });
 
 app.listen(3000);

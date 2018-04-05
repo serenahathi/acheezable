@@ -22,12 +22,14 @@
   "homepage": "https://github.com/serenahathi/acheezable#readme",
   "devDependencies": {
     "cypress": "^2.1.0",
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "mongodb-memory-server": "^1.7.3"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
+    "mongoose": "^5.0.13",
     "nodemon": "^1.17.3"
   }
 }
