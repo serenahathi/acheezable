@@ -80,13 +80,13 @@ app.post('/', (req, res) => {
       err ? console.log(err) : console.log(goal);
     });
   }
-  res.redirect('/checkbox')
+  res.redirect('/acheezements')
 })
 
-app.get('/checkbox', (req, res) => {
+app.get('/acheezements', (req, res) => {
   // get data (eventually find by date)
   Goal.find({}, function(err, allGoals) {
-    err ? console.log(err) : res.render("checkbox", { goals: allGoals });
+    err ? console.log(err) : res.render("acheezements", { goals: allGoals });
   })
 
 });
