@@ -92,7 +92,6 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   console.log(req.body.goals)
   var goals = req.body.goals;
-  for (var i = 0; i < goals.length; i++) {
     Goal.create({
       cheese: {
         goal1: {goal: goals[0], complete: false},
@@ -105,7 +104,6 @@ app.post('/', (req, res) => {
     }, function(err, goal, next) {
       err ? console.log(err) : console.log(goal);
     });
-  }
   res.redirect('/acheezements')
 })
 
