@@ -13,12 +13,36 @@
       <ul>
         <% for(var i = 0; i < goals.length; i++){ %>
           <li>
-            <%= goals[i].goal %>
-            <% if(goals[i].complete) { %>
+            <%= goals[i].cheese.goal1.goal %>
+            <!-- <% if(goals[i].cheese.goal1.complete) { %>
               <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" checked="checked" required/>
             <% } else { %>
               <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" required/>
-            <% } %>
+            <% } %> -->
+          </li>
+          <li>
+            <%= goals[i].cheese.goal2.goal %>
+            <!-- <% if(goals[i].cheese.goal2.complete) { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" checked="checked" required/>
+            <% } else { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" required/>
+            <% } %> -->
+          </li>
+          <li>
+            <%= goals[i].cheese.goal3.goal %>
+            <!-- <% if(goals[i].cheese.goal3.complete) { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" checked="checked" required/>
+            <% } else { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" required/>
+            <% } %> -->
+          </li>
+          <li>
+            <%= goals[i].cheese.goal4.goal %>
+            <!-- <% if(goals[i].cheese.goal4.complete) { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" checked="checked" required/>
+            <% } else { %>
+              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" required/>
+            <% } %> -->
           </li>
         <% } %>
       </ul>

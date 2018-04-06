@@ -111,7 +111,7 @@ app.post('/', (req, res) => {
 
 app.get('/acheezements', (req, res) => {
   // get data (eventually find by date)
-  Goal.find({}, function(err, allGoals) {
+  Goal.find({completed: false}, function(err, allGoals) {
     err ? console.log(err) : res.render("acheezements", { goals: allGoals });
   })
 
