@@ -93,7 +93,16 @@ app.post('/', (req, res) => {
   console.log(req.body.goals)
   var goals = req.body.goals;
   for (var i = 0; i < goals.length; i++) {
-    Goal.create({ goal: goals[i], complete: false }, function(err, goal, next) {
+    Goal.create({
+      cheese: {
+        goal1: {goal: goals[0], complete: false},
+        goal2: {goal: goals[1], complete: false},
+        goal3: {goal: goals[2], complete: false},
+        goal4: {goal: goals[3], complete: false}
+      },
+      completed: false,
+      createdAt: null
+    }, function(err, goal, next) {
       err ? console.log(err) : console.log(goal);
     });
   }
