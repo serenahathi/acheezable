@@ -5,9 +5,26 @@ const app = express();
 
 mongoose.connect('mongodb://localhost/acheezements');
 const goalSchema = new mongoose.Schema({
-  goal: String,
-  complete: Boolean,
-  date: { type: Date, default: Date.now }
+  cheese: {
+    goal1: {
+      goal : String,
+      complete: Boolean
+    },
+    goal2: {
+      goal : String,
+      complete: Boolean
+    },
+    goal3: {
+      goal : String,
+      complete: Boolean
+    },
+    goal4: {
+      goal : String,
+      complete: Boolean
+    },
+  },
+  completed: Boolean,
+  createdAt: {type : Date }
 });
 
 const Goal  = mongoose.model('Goal', goalSchema);
