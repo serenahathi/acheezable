@@ -88,23 +88,19 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  const goal = new Goal({
-    text: req.body.text
-  });
-    goal.save().then((doc) => {
-      res.send(doc);
-    }, (e) => {
-      res.status(400).send(e);
+    Goal.create({
+      text: req.body.goal
+    }, function(err, goal, next) {
+      err ? console.log(err) : console.log(goal);
     });
   res.redirect('/acheezements')
 })
 
 app.get('/acheezements', (req, res) => {
   // get data (eventually find by date)
-  Goal.find({completed: false}, function(err, allGoals) {
+  Goal.find({}, function(err, allGoals) {
     err ? console.log(err) : res.render("acheezements", { goals: allGoals });
   })
-
 });
 
 app.listen(3000);

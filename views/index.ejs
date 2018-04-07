@@ -8,37 +8,14 @@
     <h1>Acheezable</h1>
 
     <form action="/" method="post">
-
-      <% for (var i = 0; i < 4; i ++) { %>
-        <div class="dropdown-goals">
-          <label id="labelGoal<%= i + 1 %>" for="goal<%= i + 1 %>">Acheezement <%= i + 1 %>
-          </label>
-          <input id="inputGoal<%= i + 1 %>" type="text" name="goal<%= i + 1 %>" placeholder="enter your goal" required>
-        </div>
-      <% } %>
-
-
-<!--
       <div class="dropdown-goals">
-        <label id="labelGoalTwo" for="goals[2]">Acheezement 2
+        <label id="labelGoal" for="goal">Acheezement
         </label>
-        <input id="inputGoalTwo" type="text" name="goals[2]" placeholder="enter your goal" required>
-      </div>
-
-      <div class="dropdown-goals">
-        <label id="labelGoalThree" for="goals[3]">Acheezement 3
-        </label>
-        <input id="inputGoalThree" type="text" name="goals[3]" placeholder="enter your goal" required>
-      </div>
-
-      <div class="dropdown-goals">
-        <label id="labelGoalFour" for="goals[4]">Acheezement 4
-        </label>
-        <input id="inputGoalFour" type="text" name="goals[4]" placeholder="enter your goal" required>
+        <input id="inputGoal" type="text" name="goal" placeholder="enter your goal" required>
       </div>
 
       <div>
-          <button id="submitGoals" type="submit" name="submit">Set Goals</button>
+        <button id="submitGoal" type="submit" name="submit">Set Goals</button>
       </div>
     </form>
 
