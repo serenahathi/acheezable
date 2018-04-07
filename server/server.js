@@ -14,12 +14,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+  console.log(req.body);
     Goal.create({
       text: req.body.goal
     }, function(err, goal, next) {
       err ? console.log(err) : console.log(goal);
     });
-  res.redirect('/acheezements')
+  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/')
 })
 
 app.get('/acheezements', (req, res) => {

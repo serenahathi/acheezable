@@ -29,10 +29,12 @@
         <% } %>
       </ul>
     </form>
-    <h1>Completed <%= count %></h1>
+    <% let percent = 0 %>
+    <% percent = goals.length ? Math.floor((count / goals.length) * 100) : 0; %>
+    <h1>Completed: <%= percent %> % </h1>
     <div id="success" style="display:none">
       <h1>Success!</h1>
     </div>
-    <script type="text/javascript" src="../src/interface.js"></script>
+    <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
   </body>
 </html>
