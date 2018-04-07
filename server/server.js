@@ -24,15 +24,13 @@ app.post('/', (req, res) => {
 
 app.get('/acheezements', (req, res) => {
   // get data (eventually find by date)
-  Goal.find({}, function(err, allGoals) {
+  Goal.find({ "createdAt": { 
+    $lt: new Date(),
+    $gte: new Date(new Date().setDate(new Date().getDate()-1))}
+   }, function(err, allGoals) {
     err ? console.log(err) : res.render("acheezements", { goals: allGoals });
   })
 });
-
-
-
-
-
 
 app.listen(3000, () => {
   console.log("Started on port 3000")
