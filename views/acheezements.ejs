@@ -13,11 +13,11 @@
       <ul>
         <% for(var i = 0; i < goals.length; i++){ %>
           <li>
-            <%= goals[i].goal %>
-            <% if(goals[i].complete) { %>
-              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" checked="checked" required/>
+            <%= goals[i].text %>
+            <% if(goals[i].completed) { %>
+              <input id="checkbox<%= i + 1%>" type="checkbox" name="check" value="goal<%= i + 1%>" checked="checked" required/>
             <% } else { %>
-              <input id="checkbox<%= i + 1 %>" type="checkbox" name="check" value="<%= goals[i] %>" required/>
+              <input id="checkbox<%= i + 1%>" type="checkbox" name="check" value="goal<%= i + 1%>" required/>
             <% } %>
           </li>
         <% } %>

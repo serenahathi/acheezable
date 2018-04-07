@@ -5,9 +5,24 @@ const app = express();
 
 mongoose.connect('mongodb://localhost/acheezements');
 const goalSchema = new mongoose.Schema({
-  goal: String,
-  complete: Boolean,
-  date: { type: Date, default: Date.now }
+  text: {
+    type: String,
+    required: true,
+    minLength: 1,
+    trim: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  completed: {
+    type: Boolean,
+    default: false
+  },
+  completedAt: {
+    type: Date,
+    default: null
+  }
 });
 
 const Goal  = mongoose.model('Goal', goalSchema);
@@ -73,13 +88,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  console.log(req.body.goals)
-  var goals = req.body.goals;
-  for (var i = 0; i < goals.length; i++) {
-    Goal.create({ goal: goals[i], complete: false }, function(err, goal, next) {
+    Goal.create({
+      text: req.body.goal
+    }, function(err, goal, next) {
       err ? console.log(err) : console.log(goal);
     });
-  }
   res.redirect('/acheezements')
 })
 
@@ -88,7 +101,6 @@ app.get('/acheezements', (req, res) => {
   Goal.find({}, function(err, allGoals) {
     err ? console.log(err) : res.render("acheezements", { goals: allGoals });
   })
-
 });
 
 app.listen(3000);
