@@ -2,7 +2,7 @@
   "name": "acheezable",
   "version": "1.0.0",
   "description": "A cheesy self-led personal development app to encourage positivity during the achievement of goals.",
-  "main": "app.js",
+  "main": "server/server.js",
   "scripts": {
     "cypress": "cypress open",
     "jest": "jest"
