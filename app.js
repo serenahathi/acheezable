@@ -34,39 +34,7 @@ Goal.find({}, function(err, goals) {
     console.log("All goals");
     console.log(goals)
   }
-
-})
-
-
-// var awesome = new Goal({
-//   goal: "Run 10K",
-//   complete: true
-// });
-// awesome.save(function(err, awe) {
-//   if(err) {
-//     console.log("oooops")
-//   } else {
-//     console.log('We just saved a goal');
-//     console.log(awe);
-//     console.log(awesome);
-//   }
-// });
-
-// Create is new and save in one function
-
-// Goal.create({
-//   goal: 'Eat lots of veg',
-//   complete: false
-// }, function(err, goal){
-//   if(err) {
-//     console.log(err);
-//   } else {
-//     console.log(goal);
-//   }
-// });
-
-
-
+});
 
 app.set('view engine', "ejs");
 
@@ -88,12 +56,14 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+  console.log(req.body);
     Goal.create({
       text: req.body.goal
     }, function(err, goal, next) {
       err ? console.log(err) : console.log(goal);
     });
-  res.redirect('/acheezements')
+    req.body.cheeze ? res.redirect('/acheezements'): res.redirect('/')
+
 })
 
 app.get('/acheezements', (req, res) => {
