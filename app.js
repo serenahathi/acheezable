@@ -73,5 +73,18 @@ app.get('/acheezements', (req, res) => {
   })
 });
 
+app.post('/update', (req, res) => {
+  console.log(req.body.id)
+  Goal.findById({_id: req.body.id}, function (err, goal) {
+    if (err) return console.log(err);
+
+    goal.completed = true;
+    goal.save(function (err, updatedGoal) {
+      if (err) return console.log(err);
+      res.redirect('/acheezements');
+    });
+  });
+});
+
 app.listen(3000);
 console.log('Host server started')

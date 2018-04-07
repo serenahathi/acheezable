@@ -9,18 +9,21 @@
   <body>
     <h1>Acheezements</h1>
     <h2>Today's Goals</h2>
-    <form>
+    <form action="/update" method="post">
       <% let count = 0 %>
-
       <ul>
         <% for(var i = 0; i < goals.length; i++){ %>
           <li>
             <%= goals[i].text %>
             <% if(goals[i].completed) { %>
               <% count += 1 %>
-              <input class="complete" id="goal<%= i + 1%>" type="checkbox" name="check" value="goal<%= i + 1%>" checked="checked" required/>
+              <div class="complete" id="goal<%= i + 1 %>">
+              <button name="">Completed</button>
+              </div>
             <% } else { %>
-              <input class="incomplete" id="goal<%= i + 1%>" type="checkbox" name="check" value="goal<%= i + 1%>" required/>
+              <div class="incomplete" id="goal<%= i + 1 %>">
+              <button type="submit" name="id" value="<%=goals[i]._id%>">Mark as complete</button>
+            </div>
             <% } %>
           </li>
         <% } %>
