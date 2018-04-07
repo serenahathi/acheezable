@@ -5,26 +5,24 @@ const app = express();
 
 mongoose.connect('mongodb://localhost/acheezements');
 const goalSchema = new mongoose.Schema({
-  cheese: {
-    goal1: {
-      goal : String,
-      complete: Boolean
-    },
-    goal2: {
-      goal : String,
-      complete: Boolean
-    },
-    goal3: {
-      goal : String,
-      complete: Boolean
-    },
-    goal4: {
-      goal : String,
-      complete: Boolean
-    },
+  text: {
+    type: String,
+    required: true,
+    minLength: 1,
+    trim: true
   },
-  completed: Boolean,
-  createdAt: {type : Date }
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  completed: {
+    type: Boolean,
+    default: false
+  },
+  completedAt: {
+    type: Date,
+    default: null
+  }
 });
 
 const Goal  = mongoose.model('Goal', goalSchema);
@@ -90,19 +88,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  console.log(req.body.goals)
-  var goals = req.body.goals;
-    Goal.create({
-      cheese: {
-        goal1: {goal: goals[0], complete: false},
-        goal2: {goal: goals[1], complete: false},
-        goal3: {goal: goals[2], complete: false},
-        goal4: {goal: goals[3], complete: false}
-      },
-      completed: false,
-      createdAt: null
-    }, function(err, goal, next) {
-      err ? console.log(err) : console.log(goal);
+  const goal = new Goal({
+    text: req.body.text
+  });
+    goal.save().then((doc) => {
+      res.send(doc);
+    }, (e) => {
+      res.status(400).send(e);
     });
   res.redirect('/acheezements')
 })
