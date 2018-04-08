@@ -72,6 +72,8 @@ I would like to convert my total completed goals into a completion percentage.
 * User can navigate to Progress Tracker where only Today's goals are displayed [x]
 * A completion percentage is displayed, and updates whenever a completion button is clicked [x]
 
+![alt text](assets/images/mvp2.png)
+
 ## Acheezable 1.0.0
 
 ###### User Stories
