@@ -1,3 +1,5 @@
+const expect = require('expect');
+
 const cheezeMoulder = require('./sample');
 
 describe('makeCheezesBlue', () => {
