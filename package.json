@@ -31,6 +31,13 @@
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "mongodb": "^3.0.5",
-    "mongoose": "^5.0.13"
+    "mongoose": "^5.0.13",
+    "passport": "^0.4.0",
+    "passport-local": "~1.0.0",
+    "bcrypt-nodejs": "~0.0.3",
+    "morgan": "^1.9.0",
+    "cookie-parser": "~1.4.3",
+    "method-override": "~2.3.10",
+    "express-session": "~1.15.6"
   }
 }
