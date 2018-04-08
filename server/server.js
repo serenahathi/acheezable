@@ -21,7 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // app.use(morgan('dev')); // don't think we need
 app.use(cookieParser());
 
-app.use(session({ secret: 'allacheezementsareacheezable'}));
+app.use(session({ 
+  secret: 'allacheezementsareacheezable',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

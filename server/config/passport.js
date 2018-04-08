@@ -17,7 +17,7 @@ module.exports = function(passport) {
     passwordField: 'password',
     passReqToCallback: true
   }, 
-  funtion(req, email, password, done) {
+  function(req, email, password, done) {
     process.nextTick(function() {
       User.findOne({ 'local.email' : email }, function(err, user) {
         if (err)
