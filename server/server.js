@@ -1,40 +1,44 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const {mongoose} = require('./db/mongoose')
-const {Goal} = require('./models/goal')
+
+const {mongoose} = require('./db/mongoose');
+const {Goal} = require('./models/goal');
+
 const app = express();
 
-app.use(bodyParser.json());
 app.set('view engine', "ejs");
+
 app.use(express.static('public'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.get('/', (req, res) => {
-  res.render('index.ejs')
+  res.redirect('acheezements/new')
 });
 
-app.post('/', (req, res) => {
-  console.log(req.body);
-    Goal.create({
-      text: req.body.goal
-    }, function(err, goal, next) {
-      err ? console.log(err) : console.log(goal);
-    });
-  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/')
-})
+app.get('/acheezements/new', (req, res) => {
+  res.render('new.ejs')
+});
 
 app.get('/acheezements', (req, res) => {
-  // get data (eventually find by date)
   Goal.find({ "createdAt": {
     $lt: new Date(),
     $gte: new Date(new Date().setDate(new Date().getDate()-1))}
    }, function(err, allGoals) {
-    err ? console.log(err) : res.render("acheezements", { goals: allGoals });
+    err ? console.log(err) : res.render("index", { goals: allGoals });
   })
 });
 
+app.post('/acheezements', (req, res) => {
+  Goal.create({
+    text: req.body.goal
+  }, function(err, goal, next) {
+    err ? console.log(err) : console.log(goal);
+  });
+  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/')
+})
+
 app.post('/update', (req, res) => {
-  console.log(req.body.id)
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
 
