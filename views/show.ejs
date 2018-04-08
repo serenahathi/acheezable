@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cheezstory</title>
+  </head>
+  <body>
+    <h1>Cheezstory</h1>
+    <ul>
+      <% let weekArray = [];
+      let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      for (var i = 0; i < 7; i++) {
+        for (var j = 0; j < goals.length; j++) {
+          if(goals[j].createdAt.getDay() === i) {
+            weekArray[i] ? weekArray[i].push(goals[j].completed) : weekArray[i] = [goals[j].completed]
+          }
+        }
+        let percent = Math.floor(weekArray[i].filter(x => x).length / weekArray[i].length * 100)%>
+      <li>On <%= weekdays[i] %> you completed : <%= percent %> %</li>
+      <% } %>
+    </ul>
+
+  </body>
+</html>
