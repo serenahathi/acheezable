@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <title>Acheezable</title>
-    <link type="text/css" rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>Acheezements</title>
   </head>
+
   <body>
-    <h1>Acheezable</h1>
-
-    <form action="/" method="post">
-      <div class="dropdown-goals">
-        <label id="labelGoal" for="goal">Acheezement
-        </label>
-        <input id="inputGoal" type="text" name="goal" placeholder="enter your goal">
-      </div>
-
-      <div>
-        <button id="submitGoal" type="submit">Set Goal</button>
-      </div>
-      <div>
-        <button id="submitCheeze" type="submit" name="cheeze" value="true">Submit Cheeze</button>
-      </div>
+    <h1>Acheezements</h1>
+    <h2>Today's Goals</h2>
+    <form action="/update" method="post">
+      <% let count = 0 %>
+      <ul>
+        <% for(var i = 0; i < goals.length; i++){ %>
+          <li>
+            <%= goals[i].text %>
+            <% if(goals[i].completed) { %>
+              <% count += 1 %>
+              <div class="complete" id="goal<%= i + 1 %>">
+              <button name="">Completed</button>
+              </div>
+            <% } else { %>
+              <div class="incomplete" id="goal<%= i + 1 %>">
+              <button type="submit" name="id" value="<%=goals[i]._id%>">Mark as complete</button>
+            </div>
+            <% } %>
+          </li>
+        <% } %>
+      </ul>
     </form>
-
-
-    <script type="text/javascript" src="../src/indexInterface.js"></script>
+    <% let percent = 0 %>
+    <% percent = goals.length ? Math.floor((count / goals.length) * 100) : 0; %>
+    <h1>Completed: <%= percent %> % </h1>
+    <div id="success" style="display:none">
+      <h1>Success!</h1>
+    </div>
+    <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
   </body>
 </html>
