@@ -6,7 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 // const morgan = require('morgan'); // don't think we need this
 
-// require('./config/passport')(passport); // need later!
+require('./config/passport')(passport); // need later!
 
 const {mongoose} = require('./db/mongoose');
 const {Goal} = require('./models/goal');
@@ -74,7 +74,11 @@ app.get('/signup', (req, res) => {
   res.render('signup.ejs', { message: req.flash('signupMessage') });
 });
 
-// app.post('/signup.ejs', do passport stuff here);
+app.post('/signup', passport.authenticate('local-signup', {
+  successRedirect : '/profile',
+  failureRedirect : '/signup',
+  failureFlash : true
+}));
 
 app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile.ejs', {
