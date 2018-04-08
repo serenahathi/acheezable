@@ -1,3 +1,45 @@
+html {
+  height: 100%
+}
+
 body {
-  background-color: pink;
+  background-attachment: fixed;
+  background: #fceabb;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #f8b500, #fceabb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  font-family: 'Raleway', 'sans-serif';
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Pacifico', 'cursive';
+  font-size: 70px;
+  text-shadow: #0080ff 0px 0px 3px;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  border-radius: 50px;
+    padding: 10px 15px;
+    margin: 20px auto;
+    color: #FFFFFF;
+    background-color: #0080ff;
+    border: 0 none;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+button:hover {
+  background: -webkit-linear-gradient(grey, grey);
+  background: linear-gradient(grey, grey);
+}
+
+input[type=text] {
+  border-radius: 50px;
+  border: 2px solid #0080ff;
+  padding: 10px;
+  width: 20%;
 }

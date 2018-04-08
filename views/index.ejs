@@ -8,9 +8,9 @@
     <meta charset="utf-8">
     <title>Acheezements</title>
   </head>
-
+<div id="container">
   <body>
-    <h1>Acheezements</h1>
+    <h1 class="title">Acheezements</h1>
     <h2>Today's Goals</h2>
     <form action="/update" method="post">
       <% let count = 0 %>
@@ -21,7 +21,7 @@
             <% if(goals[i].completed) { %>
               <% count += 1 %>
               <div class="complete" id="goal<%= i + 1 %>">
-              <button name="">Completed</button>
+              <button name="">Completed <i class="fas fa-check"></i></button>
               </div>
             <% } else { %>
               <div class="incomplete" id="goal<%= i + 1 %>">
@@ -39,5 +39,5 @@
       <h1>Success!</h1>
     </div>
     <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
-  </body>
+  </body></div>
 </html>
