@@ -29,11 +29,20 @@
         <% } %>
       </ul>
     </form>
-    <% let percent = 0 %>
-    <% percent = goals.length ? Math.floor((count / goals.length) * 100) : 0; %>
+    <% let percent = 0;
+       percent = goals.length ? Math.floor((count / goals.length) * 100) : 0;
+       let tweetUrl = 'https://twitter.com/intent/tweet?hashtags=acheezable&text=';
+       let tweetText = 'I completed all my Acheezements today and I feel awesome!'%>
     <h1>Completed: <%= percent %> % </h1>
     <div id="success" style="display:none">
       <h1>Success!</h1>
+      <button class="btn">
+        <div id="tweet">
+          <a href="<%= tweetUrl + tweetText %>" target="_blank">
+            Tweet about your success!
+          </a>
+        </div>
+      </button>
     </div>
     <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
   </body>
