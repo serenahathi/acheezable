@@ -8,7 +8,7 @@ body {
   color: black;
   background: #fceabb;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to top, #f8b500, #fceabb);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  background: linear-gradient(to top, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   text-align: center;
   font-family: 'Jua', sans-serif;
   text-shadow: -1px 1px 2px white;
@@ -68,4 +68,8 @@ ul {
   background-color: #eeee;
   color: black;
   text-align: center;
-    }
+}
+
+.hide {
+  display: none;
+}

@@ -2,6 +2,9 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    </script>
     <link type="text/css" rel="stylesheet" href="../../css/styles.css">
     <meta charset="utf-8">
     <title>Acheezements</title>
@@ -21,7 +24,7 @@
               <% count += 1 %>
               <div class="complete form-element" id="goal<%= i + 1 %>">
                 <%= goals[i].text %>
-              <button name=""><i class="fa fa-check"></i></button>
+              <button type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check"></i></button>
               </div>
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">
@@ -39,7 +42,6 @@
        let tweetText = 'I completed all my Acheezements today and I feel awesome!'%>
     <h1>Completed: <%= percent %> % </h1>
     <div id="success" style="display:none">
-      <h1>Success!</h1>
       <button class="btn">
         <div id="tweet">
           <a href="<%= tweetUrl + tweetText %>" target="_blank">
