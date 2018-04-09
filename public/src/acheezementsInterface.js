@@ -9,7 +9,7 @@ $(document).ready(function() {
         title: "Success!",
         text: "You acheezed today",
         icon: "success",
-        button: "finish"
+        button: "Close"
       });
       $('#success').show();
     };
@@ -28,10 +28,10 @@ $(document).ready(function() {
           let quote = res.quoteText;
           $( "#motivation" ).click(function() {
             swal({
-              title: 'Inspiration hit',
               text: quote,
-              icon: "success",
-              button: "finish"
+              button: "Close",
+              closeOnEsc: true,
+              closeOnClickOutside: true
             });
           });
         }});

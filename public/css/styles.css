@@ -87,7 +87,7 @@ ul {
   font-size: 0.9em;
   color: black;
 }
-.edit-button {
+.edit-button, a {
   text-decoration:none;
 }
 
@@ -99,4 +99,25 @@ ul {
   color: grey;
 }
 
-  
+
+.swal-overlay, .swal-modal, {
+  background:rgba(250, 250, 250, 0.8);
+}  
+
+.swal-text {
+  background-color: #FEFAE3;
+  padding: 17px;
+  border-radius: 5px;
+  background-color: lightpink;
+  display: block;
+  margin: 22px;
+  text-align: center;
+  color: #61534e;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: lightblue;
+  font-size: 14px;
+}
