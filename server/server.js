@@ -47,7 +47,7 @@ app.get('/acheezements', isLoggedIn, (req, res) => {
   });
 });
 
-app.get('/acheezements/:id/edit', isLoggedin, (req, res) => {
+app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.params.id}, function (err, goal) {
     if (err) return console.log(err);
 
