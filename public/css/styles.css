@@ -87,3 +87,16 @@ ul {
   font-size: 0.9em;
   color: black;
 }
+.edit-button {
+  text-decoration:none;
+}
+
+.edit-button:link {
+  color: #06373c;
+}
+
+.edit-button:hover {
+  color: grey;
+}
+
+  
