@@ -4,7 +4,6 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
-const _ = require('lodash');
 // const morgan = require('morgan'); // don't think we need this
 
 require('./config/passport')(passport);

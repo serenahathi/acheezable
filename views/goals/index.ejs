@@ -31,12 +31,6 @@
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">
                 <%= goals[i].text %>
-                <div id="edit">
-                    <a href="/acheezements/<%= goals[i]._id %>/edit" target="_blank" class="edit-button>
-                      Tweet about your success!
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                  </div>
               <button type="submit" name="id" value="<%=goals[i]._id%>">Mark as complete</button>
             </div>
             <% } %>
