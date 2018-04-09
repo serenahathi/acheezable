@@ -5,6 +5,7 @@
     <link type="text/css" rel="stylesheet" href="../../css/styles.css">
     <meta charset="utf-8">
     <title>Acheezements</title>
+    <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
@@ -20,7 +21,7 @@
               <% count += 1 %>
               <div class="complete form-element" id="goal<%= i + 1 %>">
                 <%= goals[i].text %>
-              <button name="">Completed</button>
+              <button name=""><i class="fa fa-check"></i></button>
               </div>
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">
