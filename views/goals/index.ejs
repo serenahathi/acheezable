@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="../../css/styles.css">
     <meta charset="utf-8">
     <title>Acheezements</title>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,14 +16,15 @@
       <ul>
         <% for(var i = 0; i < goals.length; i++){ %>
           <li>
-            <%= goals[i].text %>
             <% if(goals[i].completed) { %>
               <% count += 1 %>
-              <div class="complete" id="goal<%= i + 1 %>">
+              <div class="complete form-element" id="goal<%= i + 1 %>">
+                <%= goals[i].text %>
               <button name="">Completed</button>
               </div>
             <% } else { %>
-              <div class="incomplete" id="goal<%= i + 1 %>">
+              <div class="incomplete form-element" id="goal<%= i + 1 %>">
+                <%= goals[i].text %>
               <button type="submit" name="id" value="<%=goals[i]._id%>">Mark as complete</button>
             </div>
             <% } %>
