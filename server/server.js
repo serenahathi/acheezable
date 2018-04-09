@@ -29,6 +29,16 @@ app.get('/acheezements', (req, res) => {
   })
 });
 
+app.get('/acheezements/show', (req, res) => {
+  Goal.find({"createdAt": {
+    $lt: new Date(),
+    $gte: new Date(new Date().setDate(new Date().getDate()-7))}
+  }, function(err, goalHistory) {
+    console.log(goalHistory)
+    err ? consoler.log(err) : res.render("goals/show", { goals: goalHistory });
+  })
+})
+
 app.post('/acheezements', (req, res) => {
   Goal.create({
     text: req.body.goal
@@ -48,6 +58,11 @@ app.post('/update', (req, res) => {
       res.redirect('/acheezements');
     });
   });
+});
+
+app.post('/show', (req, res) => {
+  console.log("hello")
+  res.redirect('/acheezements/show');
 });
 
 app.listen(3000, () => {
