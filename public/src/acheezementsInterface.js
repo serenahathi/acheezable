@@ -5,6 +5,12 @@ $(document).ready(function() {
     console.log(count_complete)
     console.log(allGoals.length)
     if (count_complete == allGoals.length) {
+      swal({
+        title: "Success!",
+        text: "You acheezed today",
+        icon: "success",
+        button: "finish"
+      });
       $('#success').show();
     };
 
