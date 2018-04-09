@@ -1,3 +1,71 @@
-body {
-  background-color: pink;
+html {
+  height: 100%;
 }
+
+body {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: black;
+  background: #fceabb;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #f8b500, #fceabb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  text-align: center;
+  font-family: 'Jua', sans-serif;
+  text-shadow: -1px 1px 2px white;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5em;
+  text-shadow: -3px 3px 4px white;
+}
+
+button {
+  height: 30px;
+  border-radius: 15px;
+  background-color: lightgreen;
+  margin-left: 10px;
+  box-shadow: -3px 3px 4px 0px #06373c;
+  font-family: 'Jua', sans-serif;
+  padding-top: 4px;
+  font-size: 0.9em;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input {
+  height: 30px;
+  border-radius: 15px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.incomplete button {
+  background-color: lightpink;
+}
+
+.form-element {
+  margin-bottom: 10px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #eeee;
+  color: black;
+  text-align: center;
+    }
