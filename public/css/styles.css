@@ -74,6 +74,19 @@ ul {
   display: none;
 }
 
+.button {
+  text-decoration: none;
+  /* display: inline-block; */
+  height: 30px;
+  border-radius: 15px;
+  background-color: lightblue;
+  margin-left: 10px;
+  box-shadow: -3px 3px 4px 0px #06373c;
+  font-family: 'Jua', sans-serif;
+  padding: 6px 8px 6px 8px;
+  font-size: 0.9em;
+  color: black;
+}
 .edit-button {
   text-decoration:none;
 }
