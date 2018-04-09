@@ -15,23 +15,36 @@
 
     <ul>
       <ul>
-        <% let weekArray = [];
+        <% let completionArray = [];
         let goalsByDay = [];
         let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         for (var i = 0; i < weekdays.length; i++) {
           for (var j = 0; j < goals.length; j++) {
             if(goals[j].createdAt.getDay() === i) {
-              weekArray[i] ? weekArray[i].push(goals[j].completed) : weekArray[i] = [goals[j].completed];
+              completionArray[i] ? completionArray[i].push(goals[j].completed) : completionArray[i] = [goals[j].completed];
               goalsByDay[i] ? goalsByDay[i].push([goals[j].text, goals[j].completed]) : goalsByDay[i] = [[goals[j].text, goals[j].completed]];
             }
           }
-          let percent = Math.floor(weekArray[i].filter(x => x).length / weekArray[i].length * 100)%>
-        <li>On <%= weekdays[i] %> you completed : <%= percent %> %
-          <div id="day<%= i %>" class="goals"><%= goalsByDay[i] %></div>
-        </li>
+        }
+        var today = new Date().getDay();
+        for (var i = 0; i < today; i++ ) {
+          weekdays.push(weekdays.shift());
+          goalsByDay.push(goalsByDay.shift());
+          completionArray.push(completionArray.shift());
+        }
+
+        for (var i = 0; i < weekdays.length; i++ ) {
+          let percent = Math.floor(completionArray[i].filter(x => x).length / completionArray[i].length * 100) %>
+          <li class="form-element">On <%= weekdays[i] %> you completed <%= percent %> %
+            <button class="days" value="<%= i %>">Show daily goals</button>
+            <div id="day<%= i %>" class="goals hide">
+              <%= goalsByDay[i] %>
+            </div>
+          </li>
         <% }
+        console.log(weekdays);
         console.log(goalsByDay)
-        console.log(weekArray) %>
+        console.log(completionArray) %>
       </ul>
     </ul>
 
