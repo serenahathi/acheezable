@@ -14,24 +14,28 @@
     <h1>Cheezetory</h1>
 
     <ul>
-      <% let completedArray = []
-      let dateArray = []
-      for (var i = 0; i < goals.length; i++) {
-        completedArray[i] = goals[i].completed
-        dateArray[i] = goals[i].createdAt
-      } %>
-
+      <ul>
+        <% let weekArray = [];
+        let goalsByDay = [];
+        let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        for (var i = 0; i < weekdays.length; i++) {
+          for (var j = 0; j < goals.length; j++) {
+            if(goals[j].createdAt.getDay() === i) {
+              weekArray[i] ? weekArray[i].push(goals[j].completed) : weekArray[i] = [goals[j].completed];
+              goalsByDay[i] ? goalsByDay[i].push([goals[j].text, goals[j].completed]) : goalsByDay[i] = [[goals[j].text, goals[j].completed]];
+            }
+          }
+          let percent = Math.floor(weekArray[i].filter(x => x).length / weekArray[i].length * 100)%>
+        <li>On <%= weekdays[i] %> you completed : <%= percent %> %
+          <div id="day<%= i %>" class="goals"><%= goalsByDay[i] %></div>
+        </li>
+        <% }
+        console.log(goalsByDay)
+        console.log(weekArray) %>
+      </ul>
     </ul>
 
 
-    <% if (goals) { %>
-      <script type="text/javascript">
-      let completedArray = [<%= completedArray %>]
-      let dateArray = [<%= dateArray %>]
-      </script>
-    <% } %>
-<script type="text/javascript" src="../src/cheezetoryInterface.js">
-
-</script>
+    <script type="text/javascript" src="../src/cheezetoryInterface.js"></script>
   </body>
 </html>
