@@ -24,7 +24,7 @@
               <% count += 1 %>
               <div class="complete form-element" id="goal<%= i + 1 %>">
                 <%= goals[i].text %>
-              <button name=""><i class="fa fa-check"></i></button>
+              <button type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check"></i></button>
               </div>
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">

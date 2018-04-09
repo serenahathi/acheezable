@@ -47,6 +47,16 @@ app.get('/acheezements', isLoggedIn, (req, res) => {
   })
 });
 
+app.get('/acheezements/show', (req, res) => {
+  Goal.find({"createdAt": {
+    $lt: new Date(),
+    $gte: new Date(new Date().setDate(new Date().getDate()-7))}
+  }, function(err, goalHistory) {
+    console.log(goalHistory)
+    err ? consoler.log(err) : res.render("goals/show", { goals: goalHistory });
+  })
+})
+
 app.post('/acheezements', isLoggedIn, (req, res) => {
   Goal.create({
     text: req.body.goal
@@ -59,13 +69,19 @@ app.post('/acheezements', isLoggedIn, (req, res) => {
 app.post('/update', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
-
-    goal.completed = true;
+    console.log(goal.completed);
+    goal.completed = !goal.completed;
+    console.log(goal.completed);
     goal.save(function (err, updatedGoal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
     });
   });
+});
+
+app.post('/show', (req, res) => {
+  console.log("hello")
+  res.redirect('/acheezements/show');
 });
 
 app.get('/login', (req, res) => {
