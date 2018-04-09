@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -12,6 +14,7 @@ const {mongoose} = require('./db/mongoose');
 const {Goal} = require('./models/goal');
 
 const app = express();
+const port = process.env.PORT;
 
 app.set('view engine', "ejs");
 
