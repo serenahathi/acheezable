@@ -13,9 +13,9 @@
   <body>
     <h1>Edit Acheezement</h1>
 
-    <form action="/acheezements" method="post">
+    <form action="/acheezements/<%= goal._id %>" method="post">
       <div class="form-element">
-        <input id="inputGoal" type="text" name="goal" placeholder="Fill me with goodness...">
+        <input id="inputGoal" type="text" name="goal" value="<%= goal.text %>">
       </div>
       <div class="form-element">
           <button id="addGoal" type="submit">Edit Acheezement</button>
