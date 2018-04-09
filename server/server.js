@@ -6,7 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 // const morgan = require('morgan'); // don't think we need this
 
-require('./config/passport')(passport); 
+require('./config/passport')(passport);
 
 const {mongoose} = require('./db/mongoose');
 const {Goal} = require('./models/goal');
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // app.use(morgan('dev')); // don't think we need
 app.use(cookieParser());
 
-app.use(session({ 
+app.use(session({
   secret: 'allacheezementsareacheezable',
   resave: true,
   saveUninitialized: true
@@ -69,7 +69,7 @@ app.post('/update', isLoggedIn, (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login.ejs', { message: req.flash('loginMessage') });
+  res.render('users/login', { message: req.flash('loginMessage') });
 });
 
 app.post('/login', passport.authenticate('local-login', {
@@ -79,7 +79,7 @@ app.post('/login', passport.authenticate('local-login', {
 }));
 
 app.get('/signup', (req, res) => {
-  res.render('signup.ejs', { message: req.flash('signupMessage') });
+  res.render('users/signup', { message: req.flash('signupMessage') });
 });
 
 app.post('/signup', passport.authenticate('local-signup', {

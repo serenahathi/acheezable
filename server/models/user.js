@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
+const validator = require('validator');
 
 const userSchema = mongoose.Schema({
   local: {
