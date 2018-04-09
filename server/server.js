@@ -24,10 +24,20 @@ app.get('/acheezements', (req, res) => {
   Goal.find({ "createdAt": {
     $lt: new Date(),
     $gte: new Date(new Date().setDate(new Date().getDate()-1))}
-   }, function(err, allGoals) {
-    err ? console.log(err) : res.render("index", { goals: allGoals });
+  }, function(err, currentGoals) {
+    err ? console.log(err) : res.render("index", { goals: currentGoals });
   })
 });
+
+app.get('/acheezements/show', (req, res) => {
+  Goal.find({ "createdAt": {
+    $lt: new Date(),
+    $gte: new Date(new Date().setDate(new Date().getDate()-7))}
+  }, function(err, goalHistory) {
+    console.log(goalHistory)
+    err ? console.log(err) : res.render("show", { goals: goalHistory });
+  })
+})
 
 app.post('/acheezements', (req, res) => {
   Goal.create({
@@ -48,6 +58,11 @@ app.post('/update', (req, res) => {
       res.redirect('/acheezements');
     });
   });
+});
+
+app.post('/show', (req, res) => {
+  console.log("hello")
+  res.redirect('/acheezements/show');
 });
 
 app.listen(3000, () => {
