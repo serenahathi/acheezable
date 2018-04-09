@@ -6,5 +6,23 @@ $(document).ready(function() {
     console.log(allGoals.length)
     if (count_complete == allGoals.length) {
       $('#success').show();
-    }
+    };
+
+    function getNewQuote() {
+      $.ajax({
+        url: 'https://api.forismatic.com/api/1.0/',
+        jsonp: 'jsonp',
+        dataType: 'jsonp',
+        data: {
+          method: 'getQuote',
+          lang: 'en',
+          format: 'jsonp'
+        },
+        success: function(res) {
+          let quote = res.quoteText;
+          $('.footer').text(quote);
+        }
+      });
+    };
+    getNewQuote();
 });
