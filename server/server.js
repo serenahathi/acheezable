@@ -30,15 +30,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.get('/', (req, res) => {
-  res.redirect('acheezements/new')
+app.get('/', isLoggedIn, (req, res) => {
+  res.redirect('/acheezements/new')
 });
 
-app.get('/acheezements/new', (req, res) => {
+app.get('/acheezements/new', isLoggedIn, (req, res) => {
   res.render('goals/new')
 });
 
-app.get('/acheezements', (req, res) => {
+app.get('/acheezements', isLoggedIn, (req, res) => {
   Goal.find({ "createdAt": {
     $lt: new Date(),
     $gte: new Date(new Date().setDate(new Date().getDate()-1))}
@@ -47,16 +47,16 @@ app.get('/acheezements', (req, res) => {
   })
 });
 
-app.post('/acheezements', (req, res) => {
+app.post('/acheezements', isLoggedIn, (req, res) => {
   Goal.create({
     text: req.body.goal
   }, function(err, goal, next) {
     err ? console.log(err) : console.log(goal);
   });
-  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/')
+  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/acheezements/new')
 })
 
-app.post('/update', (req, res) => {
+app.post('/update', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
 
@@ -73,7 +73,7 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/profile',
+  successRedirect : '/acheezements/new',
   failureRedirect : '/login',
   failureFlash : true
 }));
@@ -83,16 +83,10 @@ app.get('/signup', (req, res) => {
 });
 
 app.post('/signup', passport.authenticate('local-signup', {
-  successRedirect : '/profile',
+  successRedirect : '/acheezements/new',
   failureRedirect : '/signup',
   failureFlash : true
 }));
-
-app.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile.ejs', {
-    user : req.user
-  });
-});
 
 app.get('/logout', (req, res) => {
   req.logout();
