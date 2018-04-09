@@ -51,8 +51,9 @@ app.post('/acheezements', (req, res) => {
 app.post('/update', (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
-
-    goal.completed = true;
+    console.log(goal.completed);
+    goal.completed = !goal.completed;
+    console.log(goal.completed);
     goal.save(function (err, updatedGoal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
