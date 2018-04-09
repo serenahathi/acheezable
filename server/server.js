@@ -47,6 +47,18 @@ app.get('/acheezements', isLoggedIn, (req, res) => {
   })
 });
 
+app.get('/acheezements/:id/edit', (req, res) => {
+  Goal.findById({_id: req.params.id}, function (err, goal) {
+    if (err) return console.log(err);
+
+    res.render('goals/edit', {goal: goal})
+  })
+})
+
+app.patch('/acheezements/:id', (req, res) => {
+  Goal.findById({_id: })
+})
+
 app.post('/acheezements', isLoggedIn, (req, res) => {
   Goal.create({
     text: req.body.goal
