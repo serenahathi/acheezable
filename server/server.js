@@ -137,8 +137,8 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login');
 ;}
 
-app.listen(3000, () => {
-  console.log("Started on port 3000")
+app.listen(port, () => {
+  console.log(`Started on port ${port}`)
 });
 
 module.exports = {app};

@@ -9,6 +9,9 @@
     "jest": "jest",
     "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && jest"
   },
+  "engines": {
+    "node": "8.9.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/serenahathi/acheezable.git"
