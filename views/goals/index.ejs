@@ -23,6 +23,11 @@
             <% if(goals[i].completed) { %>
               <% count += 1 %>
               <div class="complete form-element" id="goal<%= i + 1 %>">
+                  <!-- <div id="edit"> -->
+                      <a href="/acheezements/<%= goals[i]._id %>/edit" target="_blank" class="edit-button">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                    <!-- </div> -->
                 <%= goals[i].text %>
               <button type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check"></i></button>
               </div>

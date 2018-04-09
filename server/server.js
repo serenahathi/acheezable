@@ -44,7 +44,7 @@ app.get('/acheezements', isLoggedIn, (req, res) => {
     $gte: new Date(new Date().setDate(new Date().getDate()-1))}
    }, function(err, allGoals) {
     err ? console.log(err) : res.render("goals/index", { goals: allGoals });
-  })
+  });
 });
 
 app.get('/acheezements/:id/edit', isLoggedin, (req, res) => {
@@ -52,8 +52,8 @@ app.get('/acheezements/:id/edit', isLoggedin, (req, res) => {
     if (err) return console.log(err);
 
     res.render('goals/edit', {goal: goal})
-  })
-})
+  });
+});
 
 app.post('/acheezements/:id', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.params.id}, function (err, goal) {
