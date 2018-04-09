@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <link type="text/css" rel="stylesheet" href="../../css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title></title>
+  </head>
+  <body>
+    <h1>Cheezetory</h1>
+
+    <ul>
+      <ul>
+        <% let completionArray = [];
+        let goalsByDay = [];
+        let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        for (var i = 0; i < weekdays.length; i++) {
+          for (var j = 0; j < goals.length; j++) {
+            if(goals[j].createdAt.getDay() === i) {
+              completionArray[i] ? completionArray[i].push(goals[j].completed) : completionArray[i] = [goals[j].completed];
+              goalsByDay[i] ? goalsByDay[i].push([goals[j].text, goals[j].completed]) : goalsByDay[i] = [[goals[j].text, goals[j].completed]];
+            }
+          }
+        }
+        var today = new Date().getDay();
+        for (var i = 0; i < today; i++ ) {
+          weekdays.push(weekdays.shift());
+          goalsByDay.push(goalsByDay.shift());
+          completionArray.push(completionArray.shift());
+        }
+
+        for (var i = 0; i < weekdays.length; i++ ) {
+          let percent = Math.floor(completionArray[i].filter(x => x).length / completionArray[i].length * 100) %>
+          <li class="form-element">On <%= weekdays[i] %> you completed <%= percent %> %
+            <button class="days" value="<%= i %>">Show daily goals</button>
+            <div id="day<%= i %>" class="goals hide">
+              <%= goalsByDay[i] %>
+            </div>
+          </li>
+        <% }
+        console.log(weekdays);
+        console.log(goalsByDay)
+        console.log(completionArray) %>
+      </ul>
+    </ul>
+
+
+    <script type="text/javascript" src="../src/cheezetoryInterface.js"></script>
+  </body>
+</html>
