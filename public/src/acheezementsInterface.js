@@ -26,9 +26,15 @@ $(document).ready(function() {
         },
         success: function(res) {
           let quote = res.quoteText;
-          $('.footer').text(quote);
-        }
-      });
+          $( "#motivation" ).click(function() {
+            swal({
+              title: 'Inspiration hit',
+              text: quote,
+              icon: "success",
+              button: "finish"
+            });
+          });
+        }});
     };
     getNewQuote();
 });
