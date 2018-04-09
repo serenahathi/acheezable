@@ -69,3 +69,17 @@ ul {
   color: black;
   text-align: center;
     }
+
+  .edit-button {
+    text-decoration:none;
+  }
+
+  .edit-button:link {
+    color: #06373c;
+  }
+
+  .edit-button:hover {
+    color: grey;
+  }
+
+  
