@@ -6,7 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 // const morgan = require('morgan'); // don't think we need this
 
-require('./config/passport')(passport); // need later!
+require('./config/passport')(passport); 
 
 const {mongoose} = require('./db/mongoose');
 const {Goal} = require('./models/goal');
