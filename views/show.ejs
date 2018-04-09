@@ -8,16 +8,19 @@
     <h1>Cheezstory</h1>
     <ul>
       <% let weekArray = [];
+      let goalsByDay = [];
       let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-      for (var i = 0; i < 7; i++) {
+      for (var i = 0; i < weekdays.length; i++) {
         for (var j = 0; j < goals.length; j++) {
           if(goals[j].createdAt.getDay() === i) {
-            weekArray[i] ? weekArray[i].push(goals[j].completed) : weekArray[i] = [goals[j].completed]
+            weekArray[i] ? weekArray[i].push(goals[j].completed) : weekArray[i] = [goals[j].completed];
+            goalsByDay[i] ? goalsByDay[i].push(goals[j]) : goalsByDay[i] = [goals[j]];
           }
         }
         let percent = Math.floor(weekArray[i].filter(x => x).length / weekArray[i].length * 100)%>
       <li>On <%= weekdays[i] %> you completed : <%= percent %> %</li>
-      <% } %>
+      <% }
+      console.log(goalsByDay) %>
     </ul>
 
   </body>
