@@ -2,19 +2,28 @@
 
 A cheesy self-led personal development app to encourage positivity during the achievement of goals.
 
+## Requirements
+
+* [Node and npm](https://nodejs.org/en/)
+* MongoDB
+
 ## Installation
 
 `git clone https://github.com/serenahathi/acheezable`
 
 Run `npm install` to download dependencies
 
-## How to Use
+Place your own MongoDB URI in `config/database.js`
 
-Run `node server/server.js` to launch server
+## Usage
+
+Run `mongo` in terminal to launch database server
+
+Run `node server/server.js` in separate terminal window to launch app server
 
 Navigate to `http://localhost:3000`
 
-## How to Test
+## Running Tests
 
 `npm run cypress` to run feature tests via cypress.io
 
@@ -106,18 +115,25 @@ I would like to receive words of encouragement.
 As a user,
 So that I can feel a true sense of accomplishment for completing all of my goals,
 I would like to receive some type of reward upon 100% completion.
+
+As a user,
+So that I can reflect on what goals I have achieved,
+I would like to be able to look at my recent history.
 ```
 
 ##### Features
 
-* User can sign up, login, and logout of their profile []
+* User can sign up, login, and logout of their profile [x]
 * If user logs in and has not created goals today, they will be prompted to create goals []
 * If user logs in and has already created goals today, they will be directed to their progress tracker page []
 * If user is struggling to create goals, they can click on a suggestions button and receive some inspiration []
-* User can edit their goals if they have made a mistake []
+* User can edit their goals if they have made a mistake [x]
 * If user is struggling to complete goals, they can click on a 'motivational hit' button and receive some encouragement []
 * When user completes a goal, they receive a motivational quote to keep going []
 * When user completed all their goals, the page will redirect to a 'Big Reward' page that will encourage the user to treat themselves for doing so well []
+* User can reflect on their recent history by viewing the data breakdown of the last 7 days []
+
+![alt text](assets/images/acheezable-1.0.0.png)
 
 ## Authors
 

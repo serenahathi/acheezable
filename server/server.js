@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -12,6 +14,7 @@ const {mongoose} = require('./db/mongoose');
 const {Goal} = require('./models/goal');
 
 const app = express();
+const port = process.env.PORT;
 
 app.set('view engine', "ejs");
 
@@ -134,8 +137,8 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login');
 ;}
 
-app.listen(3000, () => {
-  console.log("Started on port 3000")
+app.listen(port, () => {
+  console.log(`Started on port ${port}`)
 });
 
 module.exports = {app};

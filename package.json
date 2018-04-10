@@ -4,8 +4,13 @@
   "description": "A cheesy self-led personal development app to encourage positivity during the achievement of goals.",
   "main": "server/server.js",
   "scripts": {
+    "start": "nodemon server/server.js",
     "cypress": "cypress open",
-    "jest": "jest"
+    "jest": "jest",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && jest"
+  },
+  "engines": {
+    "node": "8.9.4"
   },
   "repository": {
     "type": "git",
