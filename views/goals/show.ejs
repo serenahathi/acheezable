@@ -41,9 +41,11 @@
         percent.includes('100') ? streaks.push(1) : streaks.push(0) %>
         <li class="form-element">On <%= weekdays[i] %> you <%= percent %>
           <button class="days" value="<%= i %>">Show daily goals</button>
+          <% if (goalsByDay[i] !== 0) { %>
           <div id="day<%= i %>" class="goals hide">
-            <%= goalsByDay[i] %>
+                <%= goalsByDay[i] %>
           </div>
+          <% } %>
         </li>
 
       <% } %>
