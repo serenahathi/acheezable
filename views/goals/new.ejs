@@ -24,6 +24,7 @@
         <button id="viewGoals" type="submit" name="cheeze" value="true">View Today's Acheezements</button>
       </div>
     </form>
+
     <form action="/show" method="post">
       <div class="form-element">
         <button id="goalHistory" type="submit" >Show Cheezetory</button>
@@ -31,7 +32,22 @@
     </form>
 
     <div class="form-element">
+      <button id="goalSuggestion" type="submit" >Need a suggestion?</button>
+    </div>
+
+    <div class="hide" id="suggestionDisplay">
+      <form action="/suggestion" method="post">
+        <p><%= suggestion %></p>
+        <div class="form-element">
+          <button name="suggestion" value="<%= suggestion %>" id="acceptSuggestion" type="submit" >Accept suggestion</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-element">
       <a href="/logout" class="button">Logout</a>
     </div>
+
+    <script type="text/javascript" src="../src/newInterface.js"></script>
   </body>
 </html>
