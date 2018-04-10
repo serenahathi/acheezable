@@ -9,7 +9,7 @@ $(document).ready(function() {
         title: "Success!",
         text: "You acheezed today",
         icon: "success",
-        button: "finish"
+        button: "Close"
       });
       $('#success').show();
     };
@@ -26,9 +26,15 @@ $(document).ready(function() {
         },
         success: function(res) {
           let quote = res.quoteText;
-          $('.footer').text(quote);
-        }
-      });
+          $( "#motivation" ).click(function() {
+            swal({
+              text: quote,
+              button: "Close",
+              closeOnEsc: true,
+              closeOnClickOutside: true
+            });
+          });
+        }});
     };
     getNewQuote();
 });
