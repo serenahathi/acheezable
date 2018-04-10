@@ -8,9 +8,9 @@ $(document).ready(function() {
     swal({
       title: 'Acheezement!',
       text: 'Well done you!',
-      icon: './images/1.jpeg',
-      imageWidth: 400,
-      imageHeight: 200,
+      icon: './images/star.gif',
+      // imageWidth: 400,
+      // imageHeight: 200,
       imageAlt: 'Custom image',
       button: "Finish"
     })
