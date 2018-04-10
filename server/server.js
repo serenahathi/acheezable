@@ -6,23 +6,19 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
-// const morgan = require('morgan'); // don't think we need this
-
-require('./config/passport')(passport);
-
 const {mongoose} = require('./db/mongoose');
-const {Goal} = require('./models/goal');
 const {Suggestion} = require('./models/suggestion');
-
+const Goal = require('./models/goal.js');
+const User = require('./models/user.js');
 const app = express();
 const port = process.env.PORT;
 
-app.set('view engine', "ejs");
+require('./config/passport')(passport);
 
+app.set('view engine', "ejs");
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-// app.use(morgan('dev')); // don't think we need
 app.use(cookieParser());
 
 app.use(session({
@@ -51,26 +47,51 @@ app.get('/acheezements/new', isLoggedIn, (req, res) => {
 });
 
 app.get('/acheezements', isLoggedIn, (req, res) => {
-  Goal.find({ "createdAt": {
+  Goal.find({ $and: [{creator: req.user._id}, {"createdAt": {
     $lt: new Date(),
-    $gte: new Date(new Date().setDate(new Date().getDate()-1))}
-   }, function(err, allGoals) {
+    $gte: new Date(new Date().setDate(new Date().getDate()-1))}}]
+  }, function(err, allGoals) {
     err ? console.log(err) : res.render("goals/index", { goals: allGoals });
   });
 });
 
-app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
-  Goal.findById({_id: req.params.id}, function (err, goal) {
-    if (err) return console.log(err);
+app.post('/acheezements', isLoggedIn, (req, res) => {
+  Goal.create({
+    text: req.body.goal,
+    creator: req.user
+  }, function(err, goal, next) {
+    err ? console.log(err) : console.log(goal);
+  });
+  req.body.cheeze ? res.redirect('/acheezements') : res.redirect ('/acheezements/new')
+})
 
+app.get('/acheezements/show', isLoggedIn, (req, res) => {
+  Goal.find({ $and: [{creator: req.user._id}, {"createdAt": {
+    $lt: new Date(),
+    $gte: new Date(new Date().setDate(new Date().getDate()-7))}}]
+  }, function(err, goalHistory) {
+    err ? console.log(err) : res.render("goals/show", { goals: goalHistory });
+  })
+})
+
+app.post('/show', (req, res) => {
+  res.redirect('/acheezements/show');
+});
+
+app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
+  Goal.findById({_id: req.params.id
+  }, function (err, goal) {
+      if (err) return console.log(err);
     res.render('goals/edit', {goal: goal})
   });
 });
 
 app.post('/acheezements/:id', isLoggedIn, (req, res) => {
-  Goal.findById({_id: req.params.id}, function (err, goal) {
+  Goal.findById({_id: req.params.id
+  }, function (err, goal) {
     if (err) return console.log(err);
     goal.text = req.body.goal;
+    console.log(req.body.goal)
     goal.save(function (err, goal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
@@ -78,38 +99,16 @@ app.post('/acheezements/:id', isLoggedIn, (req, res) => {
   });
 });
 
-app.get('/acheezements/show', (req, res) => {
-  Goal.find({"createdAt": {
-    $lt: new Date(),
-    $gte: new Date(new Date().setDate(new Date().getDate()-7))}
-  }, function(err, goalHistory) {
-    err ? consoler.log(err) : res.render("goals/show", { goals: goalHistory });
-  })
-})
-
-app.post('/acheezements', isLoggedIn, (req, res) => {
-  Goal.create({
-    text: req.body.goal
-  }, function(err, goal, next) {
-    err ? console.log(err) : console.log(goal);
-  });
-  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/acheezements/new')
-})
-
 app.post('/update', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
-    console.log(goal.completed);
     goal.completed = !goal.completed;
-    console.log(goal.completed);
     goal.save(function (err, updatedGoal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
     });
   });
 });
-
-
 
 app.post('/suggestion', isLoggedIn, (req, res) => {
   console.log(req.body);

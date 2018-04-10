@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const Goal = mongoose.model('Goal', {
+const GoalSchema = new Schema({
   text: {
     type: String,
     required: true,
@@ -10,6 +11,10 @@ const Goal = mongoose.model('Goal', {
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  creator: {
+    type: Schema.ObjectId,
+    ref: 'User'
   },
   completed: {
     type: Boolean,
@@ -21,5 +26,4 @@ const Goal = mongoose.model('Goal', {
   }
 });
 
-module.exports = {Goal};
-
+module.exports = mongoose.model('Goal', GoalSchema);
