@@ -63,19 +63,16 @@ app.post('/acheezements', isLoggedIn, (req, res) => {
   req.body.cheeze ? res.redirect('/acheezements') : res.redirect ('/acheezements/new')
 })
 
-// Parked for now: need Lewis input
-app.get('/acheezements/show', (req, res) => {
-  Goal.find({"createdAt": {
+app.get('/acheezements/show', isLoggedIn, (req, res) => {
+  Goal.find({ $and: [{creator: req.user._id}, {"createdAt": {
     $lt: new Date(),
-    $gte: new Date(new Date().setDate(new Date().getDate()-7))}
+    $gte: new Date(new Date().setDate(new Date().getDate()-7))}}]
   }, function(err, goalHistory) {
-    console.log(goalHistory)
-    err ? consoler.log(err) : res.render("goals/show", { goals: goalHistory });
+    err ? console.log(err) : res.render("goals/show", { goals: goalHistory });
   })
 })
 
 app.post('/show', (req, res) => {
-  console.log("hello")
   res.redirect('/acheezements/show');
 });
 
@@ -88,6 +85,7 @@ app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
 });
 
 app.post('/acheezements/:id', isLoggedIn, (req, res) => {
+  let goal = req.goal;
   Goal.find({ $and: [{creator: req.user._id}, {_id: req.params.id}]
   }, function (err, goal) {
     if (err) return console.log(err);
@@ -102,9 +100,7 @@ app.post('/acheezements/:id', isLoggedIn, (req, res) => {
 app.post('/update', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
-    console.log(goal.completed);
     goal.completed = !goal.completed;
-    console.log(goal.completed);
     goal.save(function (err, updatedGoal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
