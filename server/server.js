@@ -6,25 +6,18 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
-// const morgan = require('morgan'); // don't think we need this
-
-require('./config/passport')(passport);
-
 const {mongoose} = require('./db/mongoose');
-// const {Goal} = require('./models/goal');
-
-let Goal = require('./models/goal.js')
-let User = require('./models/user.js')
-
+const Goal = require('./models/goal.js');
+const User = require('./models/user.js');
 const app = express();
 const port = process.env.PORT;
 
-app.set('view engine', "ejs");
+require('./config/passport')(passport);
 
+app.set('view engine', "ejs");
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-// app.use(morgan('dev')); // don't think we need
 app.use(cookieParser());
 
 app.use(session({
@@ -77,7 +70,7 @@ app.post('/show', (req, res) => {
 });
 
 app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
-  Goal.find({ $and: [{creator: req.user._id}, {_id: req.params.id}]
+  Goal.findById({_id: req.params.id
   }, function (err, goal) {
       if (err) return console.log(err);
     res.render('goals/edit', {goal: goal})
@@ -85,11 +78,11 @@ app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
 });
 
 app.post('/acheezements/:id', isLoggedIn, (req, res) => {
-  let goal = req.goal;
-  Goal.find({ $and: [{creator: req.user._id}, {_id: req.params.id}]
+  Goal.findById({_id: req.params.id
   }, function (err, goal) {
     if (err) return console.log(err);
     goal.text = req.body.goal;
+    console.log(req.body.goal)
     goal.save(function (err, goal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
