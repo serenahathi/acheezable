@@ -12,6 +12,7 @@ require('./config/passport')(passport);
 
 const {mongoose} = require('./db/mongoose');
 const {Goal} = require('./models/goal');
+const {Suggestion} = require('./models/suggestion');
 
 const app = express();
 const port = process.env.PORT;
@@ -40,8 +41,13 @@ app.get('/', isLoggedIn, (req, res) => {
 let suggestions = ['meditate', 'walk in nature', 'call an old friend', 'read a book', 'learn some phrases in a new language'];
 
 app.get('/acheezements/new', isLoggedIn, (req, res) => {
-  let suggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
-  res.render('goals/new', { suggestion: suggestion })
+  Suggestion.count().exec(function (err, count) {
+  let random = Math.floor(Math.random() * count)
+  Suggestion.findOne().skip(random).exec(
+    function (err, suggestion) {
+      res.render('goals/new', { suggestion: suggestion.text })
+    });
+  });
 });
 
 app.get('/acheezements', isLoggedIn, (req, res) => {
