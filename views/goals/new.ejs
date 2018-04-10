@@ -34,8 +34,8 @@
     <div class="form-element">
       <button id="goalSuggestion" type="submit" >Need a suggestion?</button>
     </div>
-    
-    <div class="hide suggestionDisplay">
+
+    <div class="hide" id="suggestionDisplay">
       <form action="/suggestion" method="post">
         <p><%= suggestion %></p>
         <div class="form-element">
@@ -48,6 +48,6 @@
       <a href="/logout" class="button">Logout</a>
     </div>
 
-    <script type="text/javascript" src="../src/newInterface"></script>
+    <script type="text/javascript" src="../src/newInterface.js"></script>
   </body>
 </html>

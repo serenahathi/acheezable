@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#goalSuggestion").click(function() {
-    $(".goalSuggestion").toggleClass("hide")
-  })
+    console.log('click');
+    $("#suggestionDisplay").toggleClass("hide");
+  });
 });

@@ -112,7 +112,7 @@ app.post('/suggestion', isLoggedIn, (req, res) => {
   }, function(err, goal, next) {
     err ? console.log(err) : console.log(goal);
   });
-  res.redirect('/acheezements');
+  res.redirect('/acheezements/new');
 })
 
 app.post('/show', (req, res) => {

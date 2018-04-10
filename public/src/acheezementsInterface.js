@@ -8,7 +8,7 @@ $(document).ready(function() {
       swal({
         title: "Success!",
         text: "You acheezed today",
-        icon: "success",
+        icon: "./images/star.gif",
         button: "Close"
       });
       $('#success').show();
@@ -28,6 +28,7 @@ $(document).ready(function() {
           let quote = res.quoteText;
           $( "#motivation" ).click(function() {
             swal({
+              icon: "./images/bolt.gif",
               text: quote,
               button: "Close",
               closeOnEsc: true,
