@@ -53,26 +53,17 @@ app.get('/acheezements', isLoggedIn, (req, res) => {
   });
 });
 
-
-app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
-  Goal.findById({_id: req.params.id}, function (err, goal) {
-    if (err) return console.log(err);
-
-    res.render('goals/edit', {goal: goal})
+app.post('/acheezements', isLoggedIn, (req, res) => {
+  Goal.create({
+    text: req.body.goal,
+    creator: req.user
+  }, function(err, goal, next) {
+    err ? console.log(err) : console.log(goal);
   });
-});
+  req.body.cheeze ? res.redirect('/acheezements') : res.redirect ('/acheezements/new')
+})
 
-app.post('/acheezements/:id', isLoggedIn, (req, res) => {
-  Goal.findById({_id: req.params.id}, function (err, goal) {
-    if (err) return console.log(err);
-    goal.text = req.body.goal;
-    goal.save(function (err, goal) {
-      if (err) return console.log(err);
-      res.redirect('/acheezements');
-    })
-  });
-});
-
+// Parked for now: need Lewis input
 app.get('/acheezements/show', (req, res) => {
   Goal.find({"createdAt": {
     $lt: new Date(),
@@ -83,15 +74,30 @@ app.get('/acheezements/show', (req, res) => {
   })
 })
 
-app.post('/acheezements', isLoggedIn, (req, res) => {
-  Goal.create({
-    text: req.body.goal,
-    creator: req.user
-  }, function(err, goal, next) {
-    err ? console.log(err) : console.log(goal);
+app.post('/show', (req, res) => {
+  console.log("hello")
+  res.redirect('/acheezements/show');
+});
+
+app.get('/acheezements/:id/edit', isLoggedIn, (req, res) => {
+  Goal.find({ $and: [{creator: req.user._id}, {_id: req.params.id}]
+  }, function (err, goal) {
+      if (err) return console.log(err);
+    res.render('goals/edit', {goal: goal})
   });
-  req.body.cheeze ? res.redirect('/acheezements') : res.redirect ('/acheezements/new')
-})
+});
+
+app.post('/acheezements/:id', isLoggedIn, (req, res) => {
+  Goal.find({ $and: [{creator: req.user._id}, {_id: req.params.id}]
+  }, function (err, goal) {
+    if (err) return console.log(err);
+    goal.text = req.body.goal;
+    goal.save(function (err, goal) {
+      if (err) return console.log(err);
+      res.redirect('/acheezements');
+    })
+  });
+});
 
 app.post('/update', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
@@ -104,11 +110,6 @@ app.post('/update', isLoggedIn, (req, res) => {
       res.redirect('/acheezements');
     });
   });
-});
-
-app.post('/show', (req, res) => {
-  console.log("hello")
-  res.redirect('/acheezements/show');
 });
 
 app.get('/login', (req, res) => {
