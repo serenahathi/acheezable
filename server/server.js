@@ -11,7 +11,10 @@ const flash = require('connect-flash');
 require('./config/passport')(passport);
 
 const {mongoose} = require('./db/mongoose');
-const {Goal} = require('./models/goal');
+// const {Goal} = require('./models/goal');
+
+let Goal = require('./models/goal.js')
+let User = require('./models/user.js')
 
 const app = express();
 const port = process.env.PORT;
@@ -80,12 +83,14 @@ app.get('/acheezements/show', (req, res) => {
 })
 
 app.post('/acheezements', isLoggedIn, (req, res) => {
+
   Goal.create({
-    text: req.body.goal
+    text: req.body.goal,
+    creator: req.user
   }, function(err, goal, next) {
     err ? console.log(err) : console.log(goal);
   });
-  req.body.cheeze ? res.redirect('/acheezements') : res.redirect('/acheezements/new')
+  req.body.cheeze ? res.redirect('/acheezements') : res.redirect ('/acheezements/new') 
 })
 
 app.post('/update', isLoggedIn, (req, res) => {
