@@ -41,7 +41,8 @@ app.get('/acheezements/new', isLoggedIn, (req, res) => {
   let random = Math.floor(Math.random() * count)
   Suggestion.findOne().skip(random).exec(
     function (err, suggestion) {
-      res.render('goals/new', { suggestion: suggestion.text })
+      console.log(suggestion);
+      res.render('goals/new', { suggestion: suggestion })
     });
   });
 });
