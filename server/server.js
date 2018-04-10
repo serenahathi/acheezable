@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 const {mongoose} = require('./db/mongoose');
+const {Suggestion} = require('./models/suggestion');
 const Goal = require('./models/goal.js');
 const User = require('./models/user.js');
 const app = express();
@@ -33,8 +34,16 @@ app.get('/', isLoggedIn, (req, res) => {
   res.redirect('/acheezements/new')
 });
 
+let suggestions = ['meditate', 'walk in nature', 'call an old friend', 'read a book', 'learn some phrases in a new language'];
+
 app.get('/acheezements/new', isLoggedIn, (req, res) => {
-  res.render('goals/new')
+  Suggestion.count().exec(function (err, count) {
+  let random = Math.floor(Math.random() * count)
+  Suggestion.findOne().skip(random).exec(
+    function (err, suggestion) {
+      res.render('goals/new', { suggestion: suggestion.text })
+    });
+  });
 });
 
 app.get('/acheezements', isLoggedIn, (req, res) => {
@@ -99,6 +108,21 @@ app.post('/update', isLoggedIn, (req, res) => {
       res.redirect('/acheezements');
     });
   });
+});
+
+app.post('/suggestion', isLoggedIn, (req, res) => {
+  console.log(req.body);
+  Goal.create({
+    text: req.body.suggestion
+  }, function(err, goal, next) {
+    err ? console.log(err) : console.log(goal);
+  });
+  res.redirect('/acheezements/new');
+})
+
+app.post('/show', (req, res) => {
+  console.log("hello")
+  res.redirect('/acheezements/show');
 });
 
 app.get('/login', (req, res) => {
