@@ -45,14 +45,13 @@
        let tweetText = 'I completed all my Acheezements today and I feel awesome!'%>
     <h1>Completed: <%= percent %> % </h1>
     <div id="success" style="display:none">
-      <button class="btn">
-        <div id="tweet">
-          <a href="<%= tweetUrl + tweetText %>" target="_blank">
-            Tweet about your success!
-            <i class="fa fa-twitter"></i>
-          </a>
-        </div>
-      </button>
+      <div class="">
+        <span>Share your success!</span>
+        <a class="button" href="<%= tweetUrl + tweetText %>" target="_blank">
+
+          <i class="fa fa-twitter"></i>
+        </a>
+      </div>
     </div>
 
     <div id="motivation">
@@ -61,7 +60,8 @@
 
 
     <!-- <div class="footer"></div> -->
-    <a href="/logout" class="button">Logout</a>
+    <br>
+    <a class="button" href="/logout" >Logout</a>
     <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
   </body>
 </html>
