@@ -4,7 +4,7 @@ $(document).ready(function() {
     var count_complete = $(".complete").length;
     console.log(count_complete)
     console.log(allGoals.length)
-    if (count_complete == allGoals.length) {
+    if (count_complete == allGoals.length && allGoals.length) {
       swal({
         title: "Success!",
         text: "You acheezed today",
