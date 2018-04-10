@@ -35,14 +35,16 @@ app.get('/', isLoggedIn, (req, res) => {
 });
 
 let suggestions = ['meditate', 'walk in nature', 'call an old friend', 'read a book', 'learn some phrases in a new language'];
+const id = new mongoose.Types.ObjectId("5acc904fc7605533e27770b7");
 
 app.get('/acheezements/new', isLoggedIn, (req, res) => {
+  console.log(id)
   Suggestion.count().exec(function (err, count) {
   let random = Math.floor(Math.random() * count)
   Suggestion.findOne().skip(random).exec(
     function (err, suggestion) {
       console.log(suggestion);
-      res.render('goals/new', { suggestion: suggestion })
+      res.render('goals/new', { suggestion: suggestion.text })
     });
   });
 });
