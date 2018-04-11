@@ -13,8 +13,6 @@ $(document).ready(function() {
        }
      }
      $(`#day${i}`).html(newHTML);
-     $('.true').css('color', 'green');
-     $('.false').css('color', 'red');
      $(`#day${i}`).toggleClass('hide');
    }
   });
