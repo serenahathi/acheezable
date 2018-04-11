@@ -50,10 +50,11 @@ app.get('/acheezements/new', isLoggedIn, (req, res) => {
 });
 
 app.get('/acheezements', isLoggedIn, (req, res) => {
-  Goal.find({ $and: [{creator: req.user._id}, {"createdAt": {
+  Goal.find({ $and: [{ creator: req.user._id }, {"createdAt": {
     $lt: new Date(),
     $gte: new Date(new Date().setDate(new Date().getDate()-1))}}]
   }, function(err, allGoals) {
+    console.log(allGoals)
     err ? console.log(err) : res.render("goals/index", { goals: allGoals });
   });
 });
@@ -116,8 +117,9 @@ app.post('/update', isLoggedIn, (req, res) => {
 app.post('/suggestion', isLoggedIn, (req, res) => {
   console.log(req.body);
   Goal.create({
-    text: req.body.suggestion
-  }, function(err, goal, next) {
+    text: req.body.suggestion,
+    creator: req.user
+  }, function(err, goal) {
     err ? console.log(err) : console.log(goal);
   });
   res.redirect('/acheezements/new');
