@@ -7,9 +7,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 const {mongoose} = require('./db/mongoose');
-const {Suggestion} = require('./models/suggestion');
-const Goal = require('./models/goal.js');
-const User = require('./models/user.js');
 const app = express();
 const port = process.env.PORT;
 

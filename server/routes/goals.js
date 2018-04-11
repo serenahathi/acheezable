@@ -1,5 +1,4 @@
 const Goal = require('./../models/goal.js');
-const User = require('./../models/user.js');
 const {Suggestion} = require('./../models/suggestion');
 const express = require('express');
 const router = express.Router();
@@ -50,7 +49,7 @@ router.get('/acheezements/show', isLoggedIn, (req, res) => {
   })
 })
 
-router.post('/show', (req, res) => {
+router.post('/show', isLoggedIn, (req, res) => {
   res.redirect('/acheezements/show');
 });
 
@@ -96,7 +95,7 @@ router.post('/suggestion', isLoggedIn, (req, res) => {
   res.redirect('/acheezements/new');
 })
 
-router.post('/show', (req, res) => {
+router.post('/show', isLoggedIn, (req, res) => {
   console.log("hello")
   res.redirect('/acheezements/show');
 });
