@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.get('/', isLoggedIn, (req, res) => {
+app.get('/', (req, res) => {
   res.redirect('/acheezements/new')
 });
 
@@ -123,7 +123,7 @@ app.post('/suggestion', isLoggedIn, (req, res) => {
   res.redirect('/acheezements/new');
 })
 
-app.post('/show', (req, res) => {
+app.post('/show', isLoggedIn, (req, res) => {
   console.log("hello")
   res.redirect('/acheezements/show');
 });
