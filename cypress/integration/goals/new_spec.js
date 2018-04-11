@@ -46,7 +46,7 @@ describe('Add new acheezement', function() {
 //       // const suggestedGoal = ('#suggested-goal').text
 //     cy.get('#acceptSuggestion').click();
 //     cy.get('#viewGoals').click();
-//     cy.get('body').contains('#suggested-goal').text
+//     cy.get('body').contains('#suggested-goal')
 //   })
 // })
 });

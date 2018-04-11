@@ -13,7 +13,7 @@ describe('Header', function() {
 
 describe('Sign up', function() {
   it('lets a user sign up', function() {
-    cy.get('a').click()
+    cy.get('#signup').click()
     cy.get('h1').contains('Sign Up')
   })
 
@@ -24,7 +24,7 @@ describe('Sign up', function() {
 
   it('tells a user if they already have an account', function() {
     cy.get('button').click()
-    cy.get('.alert').contains('That email is already taken.')
+    cy.get('body').contains('That email is already taken.')
   })
 
   it('lets a user return to the Log in page', function() {
