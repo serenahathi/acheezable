@@ -50,4 +50,6 @@ describe('Log in', function() {
     cy.get('button').click()
     cy.url().should('eq', 'http://localhost:3000/acheezements/new')
   })
+
+  it
 })
