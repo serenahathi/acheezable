@@ -1,3 +1,10 @@
+/* #ffe59e light
+#d49e39 mid
+#f19827 deep
+#40362e dark brown
+#a49987 grey */
+
+
 html {
   height: 100%;
 }
@@ -5,7 +12,7 @@ html {
 body {
   background-attachment: fixed;
   background-repeat: no-repeat;
-  color: black;
+  color: #40362e;
   background-image: url("../images/background.jpg");
   background-size: 100% 100%;
   /* background: #fceabb;  /* fallback for old browsers */
@@ -13,22 +20,26 @@ body {
   /* background: linear-gradient(to top, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   text-align: center;
   font-family: 'Jua', sans-serif;
-  text-shadow: -1px 1px 2px white;
+  /* text-shadow: -1px 1px 2px white; */
 }
 
 h1 {
   font-family: 'Pacifico', cursive;
   font-size: 2.5em;
-  text-shadow: -3px 3px 4px white;
+  text-shadow: -4px 5px 4px rgba(255, 255, 255, 0.3),
+              -3px 3px 4px rgba(255, 229, 158, 1);
+
 }
 
 button {
   min-height: 30px;
   max-height: 60px;
   border-radius: 15px;
-  background-color: lightgreen;
+  color: #40362e;
+  background-color: #ffe59e;
+  border: 2px solid #d49e39;
   margin-left: 10px;
-  box-shadow: -3px 3px 4px 0px #06373c;
+  box-shadow: -3px 3px 4px 0px #40362e;
   font-family: 'Jua', sans-serif;
   padding-top: 4px;
   font-size: 0.9em;
@@ -56,7 +67,7 @@ ul {
 
 
 .incomplete button {
-  background-color: lightpink;
+  background-color: #f19827;
 }
 
 .form-element {
@@ -84,13 +95,14 @@ ul {
   /* display: inline-block; */
   height: 30px;
   border-radius: 15px;
-  background-color: lightblue;
+  background-color: #925b15;
+  border: 2px solid #d49e39;
   margin: 10px;
-  box-shadow: -3px 3px 4px 0px #06373c;
+  box-shadow: -3px 3px 4px 0px #40362e;
   font-family: 'Jua', sans-serif;
   padding: 6px 8px 6px 8px;
   font-size: 0.9em;
-  color: black;
+  color: #dec379;
 }
 .edit-button, a {
   text-decoration:none;
@@ -112,16 +124,26 @@ ul {
   background-color: #FEFAE3;
   padding: 17px;
   border-radius: 5px;
-  background-color: lightpink;
+  background-color: #d49e39;
   display: block;
   margin: 22px;
   text-align: center;
   color: #61534e;
+
+}
+
+.swal-button:focus {
+  outline: 0;
 }
 
 .swal-button {
+  color: #ffe59e;
   padding: 7px 19px;
   border-radius: 2px;
-  background-color: lightblue;
+  background-color: #b98016;
   font-size: 14px;
+}
+
+.swal-modal {
+  background-color: #ffe59e;
 }
