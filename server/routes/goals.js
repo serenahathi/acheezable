@@ -88,7 +88,8 @@ router.post('/update', isLoggedIn, (req, res) => {
 router.post('/suggestion', isLoggedIn, (req, res) => {
   console.log(req.body);
   Goal.create({
-    text: req.body.suggestion
+    text: req.body.suggestion,
+    creator: req.user
   }, function(err, goal, next) {
     err ? console.log(err) : console.log(goal);
   });
