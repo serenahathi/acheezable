@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./routes/routes')(app, passport);
+app.use(require('./routes/routes'));
 
 app.listen(port, () => {
   console.log(`Started on port ${port}`)
