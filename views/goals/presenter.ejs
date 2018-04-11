@@ -1,0 +1,52 @@
+<%
+populateAndOrderArrays = (daysArr, compArr, goalsArr, goals) => {
+  populateArray(compArr, daysArr, goals);
+  populateArray(goalsArr, daysArr, goals);
+  orderArray(daysArr);
+  orderArray(compArr);
+  orderArray(goalsArr);
+  return [daysArr, compArr, goalsArr];
+}
+
+populateArray = (arr, daysArr, goals) => {
+  for (var i = 0; i < daysArr.length; i++) {
+    arr[i] = 0;
+    for (var j = 0; j < goals.length; j++) {
+      if(goals[j].createdAt.getDay() === i) {
+        arr[i] === 0 ? arr[i] = [goals[j].completed] : arr[i].push(goals[j].completed);
+      }
+    }
+  }
+  return arr;
+}
+
+orderArray = (arr) => {
+  arr.reverse();
+  var today = new Date().getDay();
+  for (var i = 0; i < arr.length - (today + 1); i++ ) {
+    arr.push(arr.shift());
+  }
+  return arr;
+}
+
+populatePercentArr = (percentArr, compArr) => {
+  for (var i = 0; i < compArr.length; i++ ) {
+    percentArr[i] = completionArray[i] === 0 ? 'did not create any goals' : `completed ${Math.floor(completionArray[i].filter(x => x).length / completionArray[i].length * 100)}%`
+  }
+  return percentArr;
+}
+
+populateStreaksArr = (percentArr, streaks) => {
+  for (var i = 0; i < percentArr.length; i++) {
+    percentArr[i].includes('100') ? streaks.push(1) : streaks.push(0);
+  }
+  return streaks;
+}
+
+getCurrentStreak = (streaks) => {
+  streaks = streaks.reduce((res, n) =>
+    (n ? res[res.length-1]++ : res.push(0), res)
+    , [0]);
+  return streaks[0];
+}
+%>
