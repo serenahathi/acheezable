@@ -25,7 +25,7 @@ router.get('/acheezements/new', isLoggedIn, (req, res) => {
   Suggestion.findOne().skip(random).exec(
     function (err, suggestion) {
       console.log(suggestion);
-      res.render('goals/new', { suggestion: suggestion })
+      res.render('goals/new', { suggestion: suggestion.text })
     });
   });
 });

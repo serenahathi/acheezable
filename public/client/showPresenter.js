@@ -1,5 +1,4 @@
-module.exports = {
-  sayHello: function() {
+
+   function sayHello() {
     console.log("Hello cheezy peeps!")
-  }
 }
