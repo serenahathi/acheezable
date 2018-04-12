@@ -78,6 +78,9 @@ router.post('/update', isLoggedIn, (req, res) => {
   Goal.findById({_id: req.body.id}, function (err, goal) {
     if (err) return console.log(err);
     goal.completed = !goal.completed;
+    if (goal.completed === true) {
+      goal.completedAt = new Date();
+    }
     goal.save(function (err, updatedGoal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
