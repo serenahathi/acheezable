@@ -17,6 +17,12 @@ describe('completing a goal', function() {
   //   cy.get('body').should('not.contain','Mark as complete')
   // })
 
+  it('allows a user to receive a "motivation hit"', function() {
+    cy.get('#viewGoals').click()
+    cy.get('#motivation').click()
+    cy.get('.swal-button').contains('Close')
+  })
+
   it('should display 0% when all goals are incomplete', function() {
     cy.get('#inputGoal').type('Meditate')
     cy.get('#addGoal').click();
@@ -24,18 +30,20 @@ describe('completing a goal', function() {
     cy.get('#percentage').contains('0 %')
   })
 
+  it('navigates to the edit page when the pencil is clicked', function() {
+    cy.get('#viewGoals').click()
+    cy.get('#pencil').click()
+    cy.get('title').contains('Edit Acheezement')
+  })
+
   // ****************
   it('should display 100% when all goals are complete', function() {
     cy.get('#viewGoals').click()
     cy.get('#mark-complete').click()
-    cy.get('.swal-button').contains('Success')
+    cy.get('.swal-title').contains('Success!')
+    cy.get('.swal-button').click()
   })
   // ****************
-
-  it('allows a user to receive a "motivation hit"', function() {
-    cy.get('#motivation').click()
-    cy.get('.swal-button').contains('Close')
-  })
 
   it('allows a user to visit the home page', function() {
     cy.get('#home').click()
@@ -46,5 +54,4 @@ describe('completing a goal', function() {
     cy.get('#logout').click()
     cy.get('title').contains('login')
   })
-
 })

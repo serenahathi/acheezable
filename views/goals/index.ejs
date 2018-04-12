@@ -28,7 +28,7 @@
               </div>
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">
-                  <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button">
+                  <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button" id="pencil">
                     <i class="fa fa-pencil"></i>
                   </a>
                 <%= goals[i].text %>
