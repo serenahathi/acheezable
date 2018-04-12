@@ -2,22 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <title>Acheezable</title>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../../css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Acheezable</title>
+
   </head>
   <body>
     <img src="../images/logo.png" >
 
-      <a href="/">
+      <a id="home" href="/">
         <img src="../images/home.png" align="left" width="100" height="100" >
       </a>
-      <a href="/logout">
-        <img src="../images/exit3.png" align="right" width="100" height="100" >
+      <a id="logout" href="/logout">
+        <img src="../images/sign-out.png" align="right" width="100" height="100" >
       </a>
 
     <h1>Create Acheezements</h1>
@@ -46,7 +47,7 @@
 
     <div class="hide" id="suggestionDisplay">
       <form action="/suggestion" method="post">
-        <p><%= suggestion %></p>
+        <p id="suggested-goal"><%= suggestion %></p>
         <div class="form-element">
           <button name="suggestion" value="<%= suggestion %>" id="acceptSuggestion" type="submit" >Accept suggestion</button>
         </div>

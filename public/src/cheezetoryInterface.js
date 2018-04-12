@@ -5,7 +5,7 @@ $(document).ready(function() {
    if ($(`#day${i}`).html()) {
      let completionArray = $(`#day${i}`).html().trim().split(',');
      let newHTML = ''
-     for (var j = 0; j < (completionArray.length); j += 2) {
+     for (let j = 0; j < (completionArray.length); j += 2) {
        if (completionArray[j + 1] === "true") {
          newHTML += `<div class="true">${completionArray[j]}  </div>`;
        } else {

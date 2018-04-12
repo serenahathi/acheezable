@@ -13,7 +13,9 @@ A cheesy self-led personal development app to encourage positivity during the ac
 
 Run `npm install` to download dependencies
 
-Place your own MongoDB URI in `config/database.js`
+Run `seed` to create dependent data
+
+Place your own MongoDB URI in `config/config.json`
 
 ## Usage
 
