@@ -36,22 +36,20 @@ describe('completing a goal', function() {
     cy.get('title').contains('Edit Acheezement')
   })
 
-  // ****************
   it('should display a 100% completion rate when all goals are complete', function() {
     cy.get('#viewGoals').click()
-    cy.get('#mark-complete').click()
+    cy.get('.goal-incomplete').click({ multiple: true })
     cy.get('.swal-title').contains('Success!')
     cy.get('.swal-button').click()
   })
-  // ****************
 
   it('allows a user to visit the home page', function() {
-    cy.get('#home').click()
+    cy.get('#home').click({ force: true })
     cy.get('title').contains('Acheezable')
   })
 
   it('allows a user to log out', function() {
-    cy.get('#logout').click()
-    cy.get('title').contains('login')
+    cy.get('#logout').click({ force: true })
+    cy.get('title').contains('Login')
   })
 })
