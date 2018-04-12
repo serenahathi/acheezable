@@ -1,3 +1,5 @@
+console.log("suggestions created");
+
 const seeds = [
   { text: "Meditate" },
   { text: "Drink 8 glasses of water" },
