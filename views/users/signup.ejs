@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <img src="../images/logo.png">
 
-    <title>Signup</title>
-    <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../../css/styles.css">
-  </head>
-  <body>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../../css/styles.css">
 
-    <h1>Sign Up</h1>
+  <title>Signup</title>
 
-    <% if (message.length > 0) { %>
-      <div class="alert alert-danger"><%= message %></div>
+</head>
+
+<body>
+
+  <h1>Sign Up</h1>
+
+  <% if (message.length > 0) { %>
+    <div class="alert alert-danger">
+      <%= message %>
+    </div>
     <% } %>
 
-    <form action="/signup" method="post">
+      <form action="/signup" method="post">
 
-      <div class="form-element">
-        <label>Email</label>
-        <input id="emailAddress" type="email" class="form-control" name="email">
-      </div>
+        <div class="form-element">
+          <label>Email</label>
+          <input id="emailAddress" type="email" class="form-control" name="email">
+        </div>
 
-      <div class="form-element">
-        <label>Password</label>
-        <input id="password" type="password" minLength="6" class="form-control" name="password">
-      </div>
+        <div class="form-element">
+          <label>Password</label>
+          <input id="password" type="password" minLength="6" class="form-control" name="password">
+        </div>
 
-      <button type="submit" class="button">Signup</button>
+        <button type="submit" class="button">Signup</button>
 
-    </form>
+      </form>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
-  </body>
+      <p>Already have an account? <a href="/login">Login</a></p>
+</body>
+
 </html>

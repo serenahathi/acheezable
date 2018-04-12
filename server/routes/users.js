@@ -6,23 +6,27 @@ const passport = require('passport');
 require('./../config/passport')(passport);
 
 router.get('/login', (req, res) => {
-  res.render('users/login', { message: req.flash('loginMessage') });
+  res.render('users/login', {
+    message: req.flash('loginMessage')
+  });
 });
 
 router.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/acheezements/new',
-  failureRedirect : '/login',
-  failureFlash : true
+  successRedirect: '/acheezements/new',
+  failureRedirect: '/login',
+  failureFlash: true
 }));
 
 router.get('/signup', (req, res) => {
-  res.render('users/signup', { message: req.flash('signupMessage') });
+  res.render('users/signup', {
+    message: req.flash('signupMessage')
+  });
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
-  successRedirect : '/acheezements/new',
-  failureRedirect : '/signup',
-  failureFlash : true
+  successRedirect: '/acheezements/new',
+  failureRedirect: '/signup',
+  failureFlash: true
 }));
 
 router.get('/logout', (req, res) => {
