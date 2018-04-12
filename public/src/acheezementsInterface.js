@@ -28,8 +28,8 @@ $(document).ready(function() {
         let quote = res.quoteText;
         $("#motivation").click(function() {
           swal({
-            icon: "./images/bolt.gif",
-            text: quote,
+            icon: "./images/dana-image-cropped.png",
+            text: "I feel the way I feel and that's okay",
             button: "Close",
             closeOnEsc: true,
             closeOnClickOutside: true
