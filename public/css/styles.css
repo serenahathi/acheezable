@@ -9,7 +9,8 @@ body {
   background-image: url("../images/background.jpg");
   background-size: 100% 100%;
   text-align: center;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  /* font-weight: 600; */
 }
 
 h1 {
@@ -29,14 +30,15 @@ button {
   min-height: 30px;
   max-height: 60px;
   border-radius: 15px;
-  color: #0c484c;
-  background-color: #0aa4ae;
-  border: 2px solid #6bd7de;
+  color: black;
+  background-color: lightblue;
+  border: 2px solid lightblue;
   margin-left: 10px;
-  box-shadow: -3px 3px 4px 0px #40362e;
-  font-family: 'Jua', sans-serif;
+  box-shadow: -3px 3px 4px 0px white;
+  font-family: 'Raleway', sans-serif;
   padding-top: 4px;
   font-size: 0.9em;
+  /* font-weight: 800; */
 }
 
 button:focus {
@@ -61,13 +63,13 @@ ul {
 
 
 .incomplete button {
-  background-color: #f16727;
-  border: 2px solid #cd5c28;
-  color: #75442e;
+  background-color: #f127279f;
+  border: 2px solid #f127279f;
+  color: white;
 }
 
 .form-element {
-  padding-top: 12px
+  padding-top: 12px;
 }
 
 .footer {
@@ -99,14 +101,14 @@ ul {
   /* display: inline-block; */
   height: 30px;
   border-radius: 15px;
-  background-color: #125d62;
-  border: 2px solid #389298;
+  background-color: lightblue;
+  border: 2px solid lightblue;
   margin: 10px;
-  box-shadow: -3px 3px 4px 0px #40362e;
-  font-family: 'Jua', sans-serif;
+  box-shadow: -3px 3px 4px 0px #ffffff;
+  font-family: 'Raleway', sans-serif;
   padding: 6px 8px 6px 8px;
   font-size: 0.9em;
-  color: #d5fcff;
+  color: black;
 
 
 }
@@ -128,13 +130,13 @@ ul {
 
 .swal-text {
   padding: 17px;
-  border-radius: 5px;
-  background-color: #28a4ac;
+  border-radius: 10px;
+  background-color: lightblue;
   display: block;
   margin: 22px;
   text-align: center;
-  color: #095966;
-
+  color: black;
+  /* font-weight: bold; */
 }
 
 .swal-button:focus {
@@ -142,13 +144,16 @@ ul {
 }
 
 .swal-button {
-  color: #095966;
+  color: black;
   padding: 7px 19px;
-  border-radius: 2px;
-  background-color: #28a4ac;
+  border-radius: 4px;
+  background-color: lightblue;
   font-size: 14px;
+  /* font-weight: 800; */
+  ;
 }
 
 .swal-modal {
-  background-color: #ffe59e;
+  background-color:rgb(237, 232, 194);
+  border-radius: 8px;
 }
