@@ -106,7 +106,10 @@ router.post('/update', isLoggedIn, (req, res) => {
   }, (err, goal) => {
     if (err) return console.log(err);
     goal.completed = !goal.completed;
-    goal.save((err, updatedGoal) => {
+    if (goal.completed === true) {
+      goal.completedAt = new Date();
+    }
+    goal.save(function (err, updatedGoal) {
       if (err) return console.log(err);
       res.redirect('/acheezements');
     });

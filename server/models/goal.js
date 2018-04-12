@@ -10,7 +10,7 @@ const GoalSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: new Date(new Date().setHours(1,0,0,0))
   },
   creator: {
     type: Schema.ObjectId,
@@ -25,5 +25,7 @@ const GoalSchema = new Schema({
     default: null
   }
 });
+
+
 
 module.exports = mongoose.model('Goal', GoalSchema);
