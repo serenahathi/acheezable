@@ -7,7 +7,7 @@ describe('completing a goal', function() {
     cy.get('#login').click()
   })
 
-  it('checks title is `Acheezements`', function() {
+  it('checks that the page title is `Acheezements`', function() {
     cy.get('#viewGoals').click()
     cy.get('title').contains('Acheezements')
   })
@@ -23,21 +23,21 @@ describe('completing a goal', function() {
     cy.get('.swal-button').contains('Close')
   })
 
-  it('should display 0% when all goals are incomplete', function() {
+  it('should display a 0% rate when all goals are incomplete', function() {
     cy.get('#inputGoal').type('Meditate')
     cy.get('#addGoal').click();
     cy.get('#viewGoals').click()
     cy.get('#percentage').contains('0 %')
   })
 
-  it('navigates to the edit page when the pencil is clicked', function() {
+  it('navigates to the edit page when the pencil icon is clicked', function() {
     cy.get('#viewGoals').click()
     cy.get('#pencil').click()
     cy.get('title').contains('Edit Acheezement')
   })
 
   // ****************
-  it('should display 100% when all goals are complete', function() {
+  it('should display a 100% completion rate when all goals are complete', function() {
     cy.get('#viewGoals').click()
     cy.get('#mark-complete').click()
     cy.get('.swal-title').contains('Success!')
