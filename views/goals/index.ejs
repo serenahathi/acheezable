@@ -16,12 +16,12 @@
   <body>
     <img src="../images/logo.png" >
 
-      <a href="/">
-        <img src="../images/home.png" align="left" width="100" height="100" >
-      </a>
-      <a href="/logout">
-        <img src="../images/exit3.png" align="right" width="100" height="100" >
-      </a>
+    <a id="home" href="/">
+      <img src="../images/home.png" align="left" width="100" height="100" >
+    </a>
+    <a id="logout" href="/logout">
+      <img src="../images/exit3.png" align="right" width="100" height="100" >
+    </a>
     <h1>Today's Acheezements</h1>
     <form action="/update" method="post">
       <% let count = 0 %>
@@ -32,7 +32,7 @@
               <% count += 1 %>
               <div class="complete form-element" id="goal<%= i + 1 %>">
                 <%= goals[i].text %>
-              <button type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check"></i></button>
+              <button class="goal-complete" type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check"></i></button>
               </div>
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">
@@ -40,7 +40,7 @@
                     <i class="fa fa-pencil"></i>
                   </a>
                 <%= goals[i].text %>
-              <button type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-bullseye"></i></button>
+              <button class="goal-incomplete" type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-bullseye"></i></button>
             </div>
             <% } %>
           </li>
