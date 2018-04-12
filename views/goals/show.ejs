@@ -7,7 +7,6 @@
 
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../client/showPresenter.js"></script>
 
     <title>Cheezetory</title>
   </head>
@@ -32,7 +31,7 @@
     let percentArr = [];
     populatePercentArr(percentArr, completionArray);
     populateStreaksArr(percentArr, streaks);
-    for (var i = 0; i < weekdays.length; i++) { %>
+    for (let i = 0; i < weekdays.length; i++) { %>
 
     <ul>
       <li class="form-element"><%= weekdays[i] %> you <%= percentArr[i] %>
@@ -50,7 +49,7 @@
     if ( streak !== 0 && streak > 1 ) { %>
       <p>Current streak: <%= streak %> days of cheezy joy!</p>
       <% let streakCount = streak
-        while (streakCount > 0) { %>
+      while (streakCount > 0) { %>
           <img src="../images/cheese.png" width="100" height="100">
         <%  streakCount --
       }

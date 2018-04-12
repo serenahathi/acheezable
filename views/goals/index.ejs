@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    </script>
-    <link type="text/css" rel="stylesheet" href="../../css/styles.css">
-    <meta charset="utf-8">
-    <title>Acheezements</title>
-    <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="../../css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Jua|Pacifico" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <body>
-    <img src="../images/logo.png" >
+  </script>
 
-    <a id="home" href="/">
-      <img src="../images/home.png" align="left" width="100" height="100" >
-    </a>
-    <a id="logout" href="/logout">
-      <img src="../images/sign-out.png" align="right" width="100" height="100" >
-    </a>
-    <h1>Today's Acheezements</h1>
-    <form action="/update" method="post">
-      <% let count = 0 %>
-      <ul>
-        <% for(var i = 0; i < goals.length; i++){ %>
-          <li>
-            <% if(goals[i].completed) { %>
-              <% count += 1 %>
-              <div class="complete form-element" id="goal<%= i + 1 %>">
-                <%= goals[i].text %>
+  <title>Acheezements</title>
+</head>
+
+<body>
+  <img src="../images/logo.png">
+
+  <a id="home" href="/">
+    <img src="../images/home.png" align="left" width="100" height="100" >
+  </a>
+  <a id="logout" href="/logout">
+    <img src="../images/sign-out.png" align="right" width="100" height="100" >
+  </a>
+  <h1>Today's Acheezements</h1>
+  <form action="/update" method="post">
+    <% let count = 0 %>
+    <ul>
+      <% for(let i = 0; i < goals.length; i++){ %>
+        <li>
+          <% if(goals[i].completed) { %>
+            <% count += 1 %>
+            <div class="complete form-element" id="goal<%= i + 1 %>">
+              <%= goals[i].text %>
               <button class="goal-complete" type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check"></i></button>
-              </div>
-            <% } else { %>
-              <div class="incomplete form-element" id="goal<%= i + 1 %>">
-                  <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button" id="pencil">
-                    <i class="fa fa-pencil"></i>
-                  </a>
-                <%= goals[i].text %>
+            </div>
+          <% } else { %>
+            <div class="incomplete form-element" id="goal<%= i + 1 %>">
+              <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button" id="pencil">
+                <i class="fa fa-pencil"></i>
+              </a>
+              <%= goals[i].text %>
               <button class="goal-incomplete" type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-bullseye"></i></button>
             </div>
-            <% } %>
-          </li>
-        <% } %>
-      </ul>
-    </form>
+          <% } %>
+        </li>
+      <% } %>
+    </ul>
+  </form>
 
-    <% if (goals.length) {
+  <% if (goals.length) {
        let percent = 0;
        percent = Math.floor((count / goals.length) * 100);
        let tweetUrl = 'https://twitter.com/intent/tweet?hashtags=acheezable&text=';
        let tweetText = 'I completed all my Acheezements today and I feel awesome!'%>
 
-      <h1 id="percentage">Completed: <%= percent %> % </h1>
-      <div id="success" style="display:none">
-        <div class="">
-          <span>Share your success!</span>
-          <a class="button" href="<%= tweetUrl + tweetText %>" target="_blank">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </div>
+    <h1 id="percentage">Completed: <%= percent %> % </h1>
+    <div id="success" style="display:none">
+      <div class="">
+        <span>Share your success!</span>
+        <a class="button" href="<%= tweetUrl + tweetText %>" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
       </div>
+    </div>
 
     <% } else { %>
 
@@ -73,18 +74,18 @@
 
     <% } %>
 
-    <div id="motivation">
-      <button class="btn button" id="motivation" type="submit">Motivation hit <i class="fa fa-bolt"></i></button>
-    </div>
+  <div id="motivation">
+    <button class="btn button" id="motivation" type="submit">Motivation hit <i class="fa fa-bolt"></i></button>
+  </div>
 
-    <div id="back-button">
-      <button class="btn button" id="back-button" onclick="history.back()" type="submit">Back</button>
-    </div>
+  <div id="back-button">
+    <button class="btn button" id="back-button" onclick="history.back()" type="submit">Back</button>
+  </div>
 
-    <!-- <div class="footer"></div> -->
-    <br>
-    <a class="button" href="/logout" >Logout</a>
-    <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
-    <script type="text/javascript" src="../src/indexInterface.js"></script>
-  </body>
+  <!-- <div class="footer"></div> -->
+  <br>
+  <a class="button" href="/logout">Logout</a>
+  <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
+</body>
+
 </html>

@@ -4,4 +4,4 @@ const router = express.Router();
 router.use(require('./users'));
 router.use(require('./goals'));
 
-module.exports = router
+module.exports = router;

@@ -15,7 +15,9 @@ require('./config/passport')(passport);
 app.set('view engine', "ejs");
 app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(cookieParser());
 
 app.use(session({
@@ -33,4 +35,6 @@ app.listen(port, () => {
   console.log(`Started on port ${port}`)
 });
 
-module.exports = {app};
+module.exports = {
+  app
+};
