@@ -1,14 +1,28 @@
 <%
 populateAndOrderArrays = (daysArr, compArr, goalsArr, goals) => {
-  populateArray(compArr, daysArr, goals);
-  populateArray(goalsArr, daysArr, goals);
+  populateArrays(compArr, goalsArr, daysArr, goals);
   orderArray(daysArr);
   orderArray(compArr);
   orderArray(goalsArr);
+  console.log([daysArr, compArr, goalsArr])
   return [daysArr, compArr, goalsArr];
 }
 
-populateArray = (arr, daysArr, goals) => {
+populateArrays = (compArr, goalsArr, daysArr, goals) => {
+  for (var i = 0; i < daysArr.length; i++) {
+    compArr[i] = 0;
+    goalsArr[i] = 0;
+    for (var j = 0; j < goals.length; j++) {
+      if(goals[j].createdAt.getDay() === i) {
+        compArr[i] === 0 ? compArr[i] = [goals[j].completed] : compArr[i].push(goals[j].completed);
+        goalsArr[i] === 0 ? goalsArr[i] = [[goals[j].text, goals[j].completed]] : goalsArr[i].push([goals[j].text, goals[j].completed]);
+      }
+    }
+  }
+  return [compArr, goalsArr];
+}
+
+populateGoalsArray = (arr, daysArr, goals) => {
   for (var i = 0; i < daysArr.length; i++) {
     arr[i] = 0;
     for (var j = 0; j < goals.length; j++) {
