@@ -40,14 +40,22 @@
               <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button" id="pencil">
                 <i class="fa fa-pencil"></i>
               </a>
-              <%= goals[i].text %>
-              <button class="goal-incomplete" type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-bullseye"></i></button>
+              <%=   goals[i].text %>
+              <button class="goal-incomplete" type="submit" name="id" value="<%=goals[i]._id%>"><i class="fa fa-check-square"></i></button>
             </div>
           <% } %>
         </li>
       <% } %>
     </ul>
   </form>
+
+
+  <a class="button form-element" href="/acheezements/new/">
+    Cheeztory
+  </a>
+  <div id="motivation" class="form-element">
+    <button class="btn button" id="motivation" type="submit">Motivation hit <i class="fa fa-bolt"></i></button>
+  </div>
 
   <% if (goals.length) {
        let percent = 0;
@@ -69,14 +77,10 @@
 
       <p>You have no acheezements set for today</p>
       <div class="form-element">
-        <a href="/" class="btn button" id="back" type="submit">Add acheezements</a>
+        <a href="/" class="button" id="back" type="submit">Add acheezements</a>
       </div>
 
     <% } %>
-
-  <div id="motivation">
-    <button class="btn button" id="motivation" type="submit">Motivation hit <i class="fa fa-bolt"></i></button>
-  </div>
 
   <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
 </body>
