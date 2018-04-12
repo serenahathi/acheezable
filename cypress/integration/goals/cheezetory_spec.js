@@ -24,7 +24,10 @@ describe('Acheezements page', function() {
 
   it('displays the goals set on each day', function() {
     cy.get('.days').click({ multiple: true })
-    cy.get('body').contains('true')
+    cy.get('body').contains('Meditate')
+    cy.get('body').contains('Run 5K')
+    cy.get('body').contains('Write a journal')
+    cy.get('body').contains('Drink 8 glasses of water')
   })
 
 })
