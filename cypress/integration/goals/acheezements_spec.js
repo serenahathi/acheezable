@@ -52,4 +52,13 @@ describe('completing a goal', function() {
     cy.get('#logout').click({ force: true })
     cy.get('title').contains('Login')
   })
+
+  it('allows a user to post to Twitter once all goals are complete', function(){
+    cy.get('#inputGoal').type('Meditate')
+    cy.get('#addGoal').click();
+    cy.get('#viewGoals').click()
+    cy.get('.goal-incomplete').click({multiple: true})
+    cy.get('#twitter-button').click()
+    // cy.url().should('contain', 'https://www.twitter.com/intent/tweet')
+  })
 })
