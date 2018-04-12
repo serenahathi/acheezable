@@ -76,6 +76,14 @@ ul {
   text-align: center;
 }
 
+.true {
+  color: #009f06;
+}
+
+.false {
+  color: #e03907;
+}
+
 .hide {
   display: none;
 }
