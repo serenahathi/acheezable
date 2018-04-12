@@ -36,7 +36,7 @@
               </div>
             <% } else { %>
               <div class="incomplete form-element" id="goal<%= i + 1 %>">
-                  <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button">
+                  <a href="/acheezements/<%= goals[i]._id %>/edit" class="edit-button" id="pencil">
                     <i class="fa fa-pencil"></i>
                   </a>
                 <%= goals[i].text %>
@@ -54,7 +54,7 @@
        let tweetUrl = 'https://twitter.com/intent/tweet?hashtags=acheezable&text=';
        let tweetText = 'I completed all my Acheezements today and I feel awesome!'%>
 
-      <h1>Completed: <%= percent %> % </h1>
+      <h1 id="percentage">Completed: <%= percent %> % </h1>
       <div id="success" style="display:none">
         <div class="">
           <span>Share your success!</span>
@@ -77,6 +77,11 @@
       <button class="btn button" id="motivation" type="submit">Motivation hit <i class="fa fa-bolt"></i></button>
     </div>
 
+    <div id="back-button">
+      <button class="btn button" id="back-button" onclick="history.back()" type="submit">Back</button>
+    </div>
+
+    <!-- <div class="footer"></div> -->
     <br>
     <a class="button" href="/logout" >Logout</a>
     <script type="text/javascript" src="../src/acheezementsInterface.js"></script>
