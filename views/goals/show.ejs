@@ -21,7 +21,6 @@
     </a>
 
     <h1>Cheezetory</h1>
-
     <% let completionArray = [];
     let goalsByDay = [];
     let weekdays = ['On Sunday', 'On Monday', 'On Tuesday', 'On Wednesday', 'On Thursday', 'On Friday', 'On Saturday']
@@ -49,10 +48,10 @@
       <h3>Current streak: <%= streak %> days of cheezy joy!</h3>
       <% let streakCount = streak
       while (streakCount > 0) { %>
-          <img class="sm-circle" src="../images/cheese.png">
+          <img class="sm-circle" src="../../images/cheese.png">
         <%  streakCount --
       }
     } %>
-    <script type="text/javascript" src="../src/cheezetoryInterface.js"></script>
+    <script type="text/javascript" src="../../src/cheezetoryInterface.js"></script>
   </body>
 </html>

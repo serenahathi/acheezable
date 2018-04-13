@@ -65,6 +65,7 @@ router.get('/acheezements/show', isLoggedIn, (req, res) => {
       }
     }]
   }, (err, goalHistory) => {
+    console.log(goalHistory)
     if (err) return console.log(err);
     res.render("goals/show", {
       goals: goalHistory
