@@ -18,13 +18,13 @@ const seeds = [{
   }, {
     completed: false,
     completedAt: null,
-    text: "Write a journal",
+    text: "Random act of kindness",
     createdAt: new Date(Date.now()),
     creator: id
   }, {
     completed: false,
     completedAt: null,
-    text: "Drink 8 glasses of water",
+    text: "Learn a couple of phrases in Italian",
     createdAt: new Date(Date.now()),
     creator: id
   }, {
@@ -84,7 +84,7 @@ const seeds = [{
   }, {
     completed: false,
     completedAt: null,
-    text: "Run 5K",
+    text: "Run 10K",
     createdAt: new Date(new Date().setDate(new Date().getDate() - 3)),
     creator: id
   }, {
