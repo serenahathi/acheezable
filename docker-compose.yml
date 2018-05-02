@@ -8,11 +8,17 @@ services:
       - "3000:3000"
     links:
       - mongo
+  mongo-seed:
+    container_name: mongo-seed
+    build: .
+    command: ./node_modules/.bin/seed
+    links: 
+      - mongo   
   mongo:
     container_name: mongo
     image: mongo:latest
     volumes:
-      ['./mongo:/data/Acheezable']
+      - ./mongo:/data/Acheezable
     ports:
       - "27017:27017"
     environment:
