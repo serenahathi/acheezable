@@ -44,7 +44,7 @@ button {
   box-shadow: -3px 3px 4px 0px white;
   font-family: 'Raleway', sans-serif;
   padding-top: 4px;
-  font-size: 2vh;
+  font-size: 2.5vh;
   /* font-weight: 800; */
 }
 
@@ -134,7 +134,7 @@ a.button:hover {
 .button {
   text-decoration: none;
   /* display: inline-block; */
-  height: 3vh;
+  height: 3.8vh;
   border-radius: 15px;
   background-color: lightblue;
   border: 2px solid lightblue;

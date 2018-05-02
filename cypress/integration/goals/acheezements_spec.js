@@ -12,11 +12,6 @@ describe('completing a goal', function() {
     cy.get('title').contains('Acheezements')
   })
 
-  // it('allows a user to mark a goal as complete', function() {
-  //   cy.get('#mark-complete').click()
-  //   cy.get('body').should('not.contain','Mark as complete')
-  // })
-
   it('allows a user to receive a "motivation hit"', function() {
     cy.get('#viewGoals').click()
     cy.get('#motivation').click()
