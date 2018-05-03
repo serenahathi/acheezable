@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/serenahathi/acheezable#readme",
   "devDependencies": {
-    "cypress": "^2.1.0",
     "jest": "^22.4.3",
     "mongodb-memory-server": "^1.7.3",
     "nodemon": "^1.17.3"
